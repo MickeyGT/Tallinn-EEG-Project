@@ -38,7 +38,7 @@ public class UDP : MonoBehaviour
 
     private void ThreadMethod()
     {
-        UdpClient udp = new UdpClient(12345);
+        UdpClient udp = new UdpClient(56789);
         while (true)
         {
             IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
