@@ -1,11 +1,11 @@
 #ifndef THETASIGNALDECODER_H
 #define THETASIGNALDECODER_H
 #include "datagramDecoder.h"
-class thetaSignalDecoder :	public datagramDecoder
+class ThetaSignalDecoder :	public DatagramDecoder
 {
 public:
-	thetaSignalDecoder();
-	~thetaSignalDecoder();
+	ThetaSignalDecoder();
+	~ThetaSignalDecoder();
 	long long decodeSignal(const QByteArray &datagram);
 };
 

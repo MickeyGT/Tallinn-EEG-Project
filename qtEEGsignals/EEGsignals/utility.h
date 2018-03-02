@@ -1,15 +1,14 @@
+//This class should contain only static methods used throughout the application.
 #ifndef UTILITY_H
 #define UTILITY_H
 
 #include <QDateTime>
 
-
-//this class should contain only static methods used throughout the application
-class utility
+class Utility
 {
 public:
-	utility();
-	~utility();
+	Utility();
+	~Utility();
 	static QDateTime getDateTime();
 
 };

@@ -2,16 +2,16 @@
 
 
 
-utility::utility()
+Utility::Utility()
 {
 }
 
 
-utility::~utility()
+Utility::~Utility()
 {
 }
 
-QDateTime utility::getDateTime()
+QDateTime Utility::getDateTime()
 {
 	return QDateTime::currentDateTime();
 }

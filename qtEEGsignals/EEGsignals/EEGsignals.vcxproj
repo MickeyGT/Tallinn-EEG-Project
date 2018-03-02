@@ -124,14 +124,14 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="alphaSignalDecoder.cpp" />
-    <ClCompile Include="barchart.cpp" />
-    <ClCompile Include="datagramDecoder.cpp" />
+    <ClCompile Include="AlphaSignalDecoder.cpp" />
+    <ClCompile Include="Barchart.cpp" />
+    <ClCompile Include="DatagramDecoder.cpp" />
     <ClCompile Include="EEGsignals.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="thetaSignalDecoder.cpp" />
-    <ClCompile Include="udpconnection.cpp" />
-    <ClCompile Include="utility.cpp" />
+    <ClCompile Include="ThetaSignalDecoder.cpp" />
+    <ClCompile Include="UdpConnection.cpp" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="EEGsignals.h" />
@@ -143,12 +143,12 @@
     <QtRcc Include="EEGsignals.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="alphaSignalDecoder.h" />
-    <ClInclude Include="barchart.h" />
-    <QtMoc Include="udpconnection.h" />
-    <ClInclude Include="datagramDecoder.h" />
-    <ClInclude Include="thetaSignalDecoder.h" />
-    <ClInclude Include="utility.h" />
+    <ClInclude Include="AlphaSignalDecoder.h" />
+    <ClInclude Include="Barchart.h" />
+    <ClInclude Include="DatagramDecoder.h" />
+    <ClInclude Include="ThetaSignalDecoder.h" />
+    <ClInclude Include="Utility.h" />
+    <QtMoc Include="UdpConnection.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
