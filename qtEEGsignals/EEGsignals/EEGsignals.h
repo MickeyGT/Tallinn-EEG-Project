@@ -1,5 +1,4 @@
-#pragma once
-
+//This class represents the main window of the application
 #include <QtWidgets/QMainWindow>
 #include "ui_EEGsignals.h"
 #include <qdebug.h>
@@ -16,8 +15,8 @@ public:
 	EEGsignals(QWidget *parent = Q_NULLPTR);
 
 private:
-	udpconnection alphaUDPconnection;
-	udpconnection thetaUDPconnection;
+	UdpConnection mAlphaUDPconnection;
+	UdpConnection mThetaUDPconnection;
 
 	enum
 	{
@@ -29,7 +28,7 @@ private:
 
 	public slots :
 		void changeAlphaSignalPort();
-		void beginVisualization();
 		void changeThetaSignalPort();
+		void beginVisualization();
 	
 };

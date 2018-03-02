@@ -2,12 +2,12 @@
 
 
 
-datagramDecoder::datagramDecoder()
+DatagramDecoder::DatagramDecoder()
 {
 }
 
 
-datagramDecoder::~datagramDecoder()
+DatagramDecoder::~DatagramDecoder()
 {
 }
 

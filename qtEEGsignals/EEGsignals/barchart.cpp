@@ -1,15 +1,15 @@
 #include "barchart.h"
 
-barchart::barchart()
+Barchart::Barchart()
 {
 }
 
 
-barchart::~barchart()
+Barchart::~Barchart()
 {
 }
 
-QChartView* barchart::createChart()
+QChartView* Barchart::createChart()
 {
 	QBarSet *set0 = new QBarSet("Jane");
 	QBarSet *set1 = new QBarSet("John");
@@ -26,8 +26,6 @@ QChartView* barchart::createChart()
 	QBarSeries *series = new QBarSeries();
 	series->append(set0);
 	series->append(set1);
-
-
 
 	QChart *chart = new QChart();
 	chart->addSeries(series);

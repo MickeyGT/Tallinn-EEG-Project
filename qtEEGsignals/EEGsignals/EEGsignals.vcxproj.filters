@@ -36,22 +36,22 @@
     <ClCompile Include="EEGsignals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="udpconnection.cpp">
+    <ClCompile Include="AlphaSignalDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="utility.cpp">
+    <ClCompile Include="Barchart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="barchart.cpp">
+    <ClCompile Include="DatagramDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="datagramDecoder.cpp">
+    <ClCompile Include="ThetaSignalDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="alphaSignalDecoder.cpp">
+    <ClCompile Include="UdpConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="thetaSignalDecoder.cpp">
+    <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +59,7 @@
     <QtMoc Include="EEGsignals.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="udpconnection.h">
+    <QtMoc Include="UdpConnection.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -74,19 +74,19 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="utility.h">
+    <ClInclude Include="AlphaSignalDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="datagramDecoder.h">
+    <ClInclude Include="Barchart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="alphaSignalDecoder.h">
+    <ClInclude Include="DatagramDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thetaSignalDecoder.h">
+    <ClInclude Include="ThetaSignalDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="barchart.h">
+    <ClInclude Include="Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,14 +10,14 @@
 
 QT_CHARTS_USE_NAMESPACE
 
-class barchart : public QObject
+class Barchart : public QObject
 {
 	
 
 public:
 
-	barchart();
-	~barchart();
+	Barchart();
+	~Barchart();
 	QChartView* createChart();
 };
 

@@ -2,16 +2,16 @@
 
 
 
-thetaSignalDecoder::thetaSignalDecoder()
+ThetaSignalDecoder::ThetaSignalDecoder()
 {
 }
 
 
-thetaSignalDecoder::~thetaSignalDecoder()
+ThetaSignalDecoder::~ThetaSignalDecoder()
 {
 }
 
-long long thetaSignalDecoder::decodeSignal(const QByteArray &datagram)
+long long ThetaSignalDecoder::decodeSignal(const QByteArray &datagram)
 {
 	double a;
 	return a;

@@ -4,33 +4,34 @@
 #include <QDataStream>
 #include <QNetworkDatagram>
 
-udpconnection::udpconnection(QObject *parent) :
+UdpConnection::UdpConnection(QObject *parent) :
 	QObject(parent)
 {
 }
 
-udpconnection::udpconnection(const int &port, QObject *parent) :
+UdpConnection::UdpConnection(const int &port, QObject *parent) :
 	QObject(parent)
 {
+	
 	setPort(port);
 }
 
-void udpconnection::readyRead()
+void UdpConnection::readyRead()
 {
 	QByteArray buffer;
-	buffer.resize(socket->pendingDatagramSize());
+	buffer.resize(mSocket->pendingDatagramSize());
 
 	QHostAddress sender;
 	quint16 senderPort;
 
-	socket->readDatagram(buffer.data(), buffer.size(),
+	mSocket->readDatagram(buffer.data(), buffer.size(),
 		&sender, &senderPort);
 
 	quint8 mynumber;
 	QDataStream readStream(&buffer, QIODevice::ReadOnly);
 	readStream >> mynumber;
 
-	currentValue = buffer;
+	mCurrentValue = buffer;
 
 	qDebug() << "Message from: " << sender.toString();
 	qDebug() << "Message port: " << senderPort;
@@ -39,21 +40,21 @@ void udpconnection::readyRead()
 //00 00 00 00 00 56 5d bf
 // 00 00 00 00 00 d6 41 3f
 
-bool udpconnection::hasPendingDatagram()
+bool UdpConnection::hasPendingDatagram()
 {
-	return socket->hasPendingDatagrams();
+	return mSocket->hasPendingDatagrams();
 }
 
-QByteArray udpconnection::getCurrentValue()
+QByteArray UdpConnection::getCurrentValue()
 {
-	return currentValue;
+	return mCurrentValue;
 }
 
-void udpconnection::setPort(const double &UDPPort)
+void UdpConnection::setPort(const double &UDPPort)
 {
 	//theres a last message on the port waiting
-	socket = new QUdpSocket(this);
-	socket->bind(QHostAddress::Any, UDPPort);
-	socket->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 2000000);
-	connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
+	mSocket = new QUdpSocket(this);
+	mSocket->bind(QHostAddress::Any, UDPPort);
+	mSocket->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 2000000);
+	connect(mSocket, SIGNAL(readyRead()), this, SLOT(readyRead()));
 }

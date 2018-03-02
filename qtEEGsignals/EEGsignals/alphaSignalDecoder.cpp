@@ -2,16 +2,16 @@
 
 
 
-alphaSignalDecoder::alphaSignalDecoder()
+AlphaSignalDecoder::AlphaSignalDecoder()
 {
 }
 
 
-alphaSignalDecoder::~alphaSignalDecoder()
+AlphaSignalDecoder::~AlphaSignalDecoder()
 {
 }
 
-long long alphaSignalDecoder::decodeSignal(const QByteArray &datagram)
+long long AlphaSignalDecoder::decodeSignal(const QByteArray &datagram)
 {	
 	bool ok;
 
@@ -42,7 +42,7 @@ long long alphaSignalDecoder::decodeSignal(const QByteArray &datagram)
 }
 //00 00 00 00 00 dc 46 3f
 
-double alphaSignalDecoder::hexstr2double(const std::string& hexstr)
+double AlphaSignalDecoder::hexstr2double(const std::string& hexstr)
 {
 	union
 	{

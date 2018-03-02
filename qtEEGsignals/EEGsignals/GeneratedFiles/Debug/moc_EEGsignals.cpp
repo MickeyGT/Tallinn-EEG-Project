@@ -34,12 +34,12 @@ static const qt_meta_stringdata_EEGsignals_t qt_meta_stringdata_EEGsignals = {
 QT_MOC_LITERAL(0, 0, 10), // "EEGsignals"
 QT_MOC_LITERAL(1, 11, 21), // "changeAlphaSignalPort"
 QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 18), // "beginVisualization"
-QT_MOC_LITERAL(4, 53, 21) // "changeThetaSignalPort"
+QT_MOC_LITERAL(3, 34, 21), // "changeThetaSignalPort"
+QT_MOC_LITERAL(4, 56, 18) // "beginVisualization"
 
     },
     "EEGsignals\0changeAlphaSignalPort\0\0"
-    "beginVisualization\0changeThetaSignalPort"
+    "changeThetaSignalPort\0beginVisualization"
 };
 #undef QT_MOC_LITERAL
 
@@ -76,8 +76,8 @@ void EEGsignals::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->changeAlphaSignalPort(); break;
-        case 1: _t->beginVisualization(); break;
-        case 2: _t->changeThetaSignalPort(); break;
+        case 1: _t->changeThetaSignalPort(); break;
+        case 2: _t->beginVisualization(); break;
         default: ;
         }
     }
