@@ -1,0 +1,13 @@
+INPUT(
+./debug\alphaSignalDecoder.o
+./debug\barchart.o
+./debug\datagramDecoder.o
+./debug\EEGsignals.o
+./debug\main.o
+./debug\thetaSignalDecoder.o
+./debug\udpconnection.o
+./debug\utility.o
+./debug\qrc_EEGsignals.o
+./debug\moc_EEGsignals.o
+./debug\moc_udpconnection.o
+);
