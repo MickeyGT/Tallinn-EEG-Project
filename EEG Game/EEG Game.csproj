@@ -303,6 +303,7 @@
     <Compile Include="Assets\_Complete-Game\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Player\PlayerShooting.cs" />
+    <Compile Include="Assets\LightScript.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -356,6 +357,7 @@
     <Compile Include="Assets\Scripts\Managers\PowerManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerLight.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Shooting.cs" />
     <Compile Include="Assets\Scripts\Player\UDP.cs" />

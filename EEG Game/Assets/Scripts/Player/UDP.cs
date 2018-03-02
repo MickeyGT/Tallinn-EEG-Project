@@ -5,17 +5,20 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System;
+using System.Security.Permissions;
 
 public class UDP : MonoBehaviour
 {
     Thread thread;
-    static readonly object lockObject = new object();
     bool precessData = false;
     public static int power;
+    private UdpClient udp;
+    private bool running = true;
 
     void Start()
     {
         power = 1;
+        udp = new UdpClient(56789);
         thread = new Thread(new ThreadStart(ThreadMethod));
         thread.Start();
     }
@@ -30,16 +33,24 @@ public class UDP : MonoBehaviour
         }
     }
 
+
+    [SecurityPermissionAttribute(SecurityAction.Demand, ControlThread = true)]
+    private void KillTheThread()
+    {
+        thread.Abort();
+    }
+
     void OnApplicationQuit()
     {
-        //udp.Close();
-        thread.Abort();
+        udp.Close();
+        running = false;
+        KillTheThread();
+        
     }
 
     private void ThreadMethod()
     {
-        UdpClient udp = new UdpClient(56789);
-        while (true)
+        while (running)
         {
             IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
             try
