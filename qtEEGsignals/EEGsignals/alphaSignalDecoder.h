@@ -1,12 +1,15 @@
 #ifndef ALPHASIGNALDECODER_H
 #define ALPHASIGNALDECODER_H
-#include "datagramDecoder.h"
+#include "DatagramDecoder.h"
+#include <QDataStream>
+#include <qdebug.h>
+
 class AlphaSignalDecoder : public DatagramDecoder
 {
 public:
 	AlphaSignalDecoder();
 	~AlphaSignalDecoder();
-	long long decodeSignal(const QByteArray &datagram);
+	double decodeSignal(const QByteArray& datagram);
 	double hexstr2double(const std::string& hexstr);
 };
 

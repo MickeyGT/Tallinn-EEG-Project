@@ -1,4 +1,4 @@
-#include "barchart.h"
+#include "Barchart.h"
 
 Barchart::Barchart()
 {
