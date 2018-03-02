@@ -3,8 +3,8 @@
 #include "ui_EEGsignals.h"
 #include <qdebug.h>
 #include <QHostAddress>
-#include "udpconnection.h"
-#include "barchart.h"
+#include "UdpConnection.h"
+#include "Barchart.h"
 
 
 class EEGsignals : public QMainWindow

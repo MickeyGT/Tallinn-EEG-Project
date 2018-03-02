@@ -1,4 +1,4 @@
-#include "udpconnection.h"
+#include "UdpConnection.h"
 #include <qdebug.h>
 #include <QHostAddress>
 #include <QDataStream>
@@ -12,7 +12,6 @@ UdpConnection::UdpConnection(QObject *parent) :
 UdpConnection::UdpConnection(const int &port, QObject *parent) :
 	QObject(parent)
 {
-	
 	setPort(port);
 }
 
@@ -27,18 +26,8 @@ void UdpConnection::readyRead()
 	mSocket->readDatagram(buffer.data(), buffer.size(),
 		&sender, &senderPort);
 
-	quint8 mynumber;
-	QDataStream readStream(&buffer, QIODevice::ReadOnly);
-	readStream >> mynumber;
-
 	mCurrentValue = buffer;
-
-	qDebug() << "Message from: " << sender.toString();
-	qDebug() << "Message port: " << senderPort;
-	qDebug() << "Message: " << sizeof(buffer);
 }
-//00 00 00 00 00 56 5d bf
-// 00 00 00 00 00 d6 41 3f
 
 bool UdpConnection::hasPendingDatagram()
 {

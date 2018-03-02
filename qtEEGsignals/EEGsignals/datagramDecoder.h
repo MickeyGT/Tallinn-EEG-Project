@@ -9,6 +9,6 @@ class DatagramDecoder
 public:
 	DatagramDecoder();
 	~DatagramDecoder();
-	virtual long long decodeSignal(const QByteArray &datagram) = 0;
+	virtual double decodeSignal(const QByteArray& datagram) = 0;
 };
 #endif

@@ -1,6 +1,6 @@
 #include "EEGsignals.h"
 #include <QInputDialog>
-#include "alphaSignalDecoder.h"
+#include "AlphaSignalDecoder.h"
 
 EEGsignals::EEGsignals(QWidget *parent):
 	mAlphaUDPconnection(alphaChannel),	//channels are set by default to 25000(alpha) / 26000(theta)
@@ -39,6 +39,6 @@ void EEGsignals::changeThetaSignalPort()
 void EEGsignals::beginVisualization()
 {
 		AlphaSignalDecoder decoder;
-		long long signalResult = decoder.decodeSignal(mAlphaUDPconnection.getCurrentValue());
-		qDebug() << signalResult;
+		double signalResult = decoder.decodeSignal(mAlphaUDPconnection.getCurrentValue());
+		qDebug() << "Result is: " << signalResult;
 }

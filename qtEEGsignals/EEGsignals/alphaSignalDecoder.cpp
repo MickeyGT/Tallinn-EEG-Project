@@ -1,4 +1,4 @@
-#include "alphaSignalDecoder.h"
+#include "AlphaSignalDecoder.h"
 
 
 
@@ -11,32 +11,45 @@ AlphaSignalDecoder::~AlphaSignalDecoder()
 {
 }
 
-long long AlphaSignalDecoder::decodeSignal(const QByteArray &datagram)
+double AlphaSignalDecoder::decodeSignal(const QByteArray& datagram)
 {	
-	bool ok;
+	QByteArray auxByteArray(datagram);
+	QByteArray byte1 = auxByteArray.mid(0, 8);
+	QByteArray byte2 = auxByteArray.mid(8, 8);
+	QByteArray byte3 = auxByteArray.mid(16, 8);
+	QByteArray byte4 = auxByteArray.mid(24, 8);
+	QByteArray byte5 = auxByteArray.mid(32, 8);
 
-	QString auxstring(datagram.toHex());
-
-	std::string current_locale_text = auxstring.toLocal8Bit().constData();
-
-	double a = hexstr2double(current_locale_text);
-
-	QString* completeSignal = new QString(datagram.toHex());
-
-	QString string(datagram.toHex());
-	QString firstvalue = string.toUpper().left(16);
+	double alpha1213;
+	QDataStream firstSignal(&byte1, QIODevice::ReadOnly);
+	firstSignal.setByteOrder(QDataStream::LittleEndian);
+	firstSignal >> alpha1213;
+	qDebug() << alpha1213;
 	
-	unsigned long long asdasda = firstvalue.toULongLong(&ok , 16);
 
+	double alpha1112;
+	QDataStream secondSignal(&byte2, QIODevice::ReadOnly);
+	secondSignal.setByteOrder(QDataStream::LittleEndian);
+	secondSignal >> alpha1112;
+	qDebug() << alpha1112;
 
-	QStringRef ref(completeSignal, 0, 16);
-	long long asdf = ref.toLongLong();
+	double alpha1011;
+	QDataStream thirdSignal(&byte3, QIODevice::ReadOnly);
+	thirdSignal.setByteOrder(QDataStream::LittleEndian);
+	thirdSignal >> alpha1011;
+	qDebug() << alpha1011;
 
-	long long alpha1213 = QStringRef(completeSignal, 0, 16).toLongLong();
-	long long alpha1112 = QStringRef(completeSignal, 16, 16).toLongLong();
-	long long alpha1011 = QStringRef(completeSignal, 32, 16).toLongLong();
-	long long alpha910 = QStringRef(completeSignal, 48, 16).toLongLong();
-	long long alpha89 = QStringRef(completeSignal, 64, 16).toLongLong();
+	double alpha910;
+	QDataStream fourthSignal(&byte4, QIODevice::ReadOnly);
+	fourthSignal.setByteOrder(QDataStream::LittleEndian);
+	fourthSignal >> alpha910;
+	qDebug() << alpha910;
+
+	double alpha89;
+	QDataStream fifthSignal(&byte5, QIODevice::ReadOnly);
+	fifthSignal.setByteOrder(QDataStream::LittleEndian);
+	fifthSignal >> alpha89;
+	qDebug() << alpha89;
 
 	return (-(alpha1213 * alpha1213) - alpha1112 + alpha910 + (alpha89 * alpha89));
 }

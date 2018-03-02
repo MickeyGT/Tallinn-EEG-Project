@@ -1,11 +1,3 @@
-﻿  Moc'ing EEGsignals.h...
-  Moc'ing UdpConnection.h...
-  Rcc'ing EEGsignals.qrc...
-  Uic'ing EEGsignals.ui...
-  RCC: Warning: No resources in 'C:\Users\radu\Documents\GitHub\Tallinn-EEG-Project\qtEEGsignals\EEGsignals\EEGsignals.qrc'.
-  qrc_EEGsignals.cpp
-  EEGsignals.cpp
-  main.cpp
-  moc_EEGsignals.cpp
-  moc_UdpConnection.cpp
+﻿  AlphaSignalDecoder.cpp
+  UdpConnection.cpp
   EEGsignals.vcxproj -> C:\Users\radu\Documents\GitHub\Tallinn-EEG-Project\qtEEGsignals\x64\Debug\EEGsignals.exe

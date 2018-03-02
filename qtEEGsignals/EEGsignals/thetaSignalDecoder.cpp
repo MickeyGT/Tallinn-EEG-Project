@@ -1,4 +1,4 @@
-#include "thetaSignalDecoder.h"
+#include "ThetaSignalDecoder.h"
 
 
 
@@ -11,7 +11,7 @@ ThetaSignalDecoder::~ThetaSignalDecoder()
 {
 }
 
-long long ThetaSignalDecoder::decodeSignal(const QByteArray &datagram)
+double ThetaSignalDecoder::decodeSignal(const QByteArray& datagram)
 {
 	double a;
 	return a;
