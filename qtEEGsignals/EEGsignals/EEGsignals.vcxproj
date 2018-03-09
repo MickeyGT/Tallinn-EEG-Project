@@ -39,7 +39,7 @@
       <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</GenerateDebugInformation>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Network.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">qtmain.lib;Qt5Chartsd.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Network.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <InputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FullPath)</InputFile>
@@ -127,6 +127,8 @@
     <ClCompile Include="AlphaSignalDecoder.cpp" />
     <ClCompile Include="Barchart.cpp" />
     <ClCompile Include="DatagramDecoder.cpp" />
+    <ClCompile Include="DataManagementThread.cpp" />
+    <ClCompile Include="DynamicSpline.cpp" />
     <ClCompile Include="EEGsignals.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ThetaSignalDecoder.cpp" />
@@ -146,6 +148,8 @@
     <ClInclude Include="AlphaSignalDecoder.h" />
     <ClInclude Include="Barchart.h" />
     <ClInclude Include="DatagramDecoder.h" />
+    <QtMoc Include="DynamicSpline.h" />
+    <QtMoc Include="DataManagementThread.h" />
     <ClInclude Include="ThetaSignalDecoder.h" />
     <ClInclude Include="Utility.h" />
     <QtMoc Include="UdpConnection.h" />

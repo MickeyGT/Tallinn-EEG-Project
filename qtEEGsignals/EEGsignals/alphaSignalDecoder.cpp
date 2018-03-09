@@ -19,6 +19,10 @@ double AlphaSignalDecoder::decodeSignal(const QByteArray& datagram)
 	QByteArray byte3 = auxByteArray.mid(16, 8);
 	QByteArray byte4 = auxByteArray.mid(24, 8);
 	QByteArray byte5 = auxByteArray.mid(32, 8);
+	QByteArray byte6 = auxByteArray.mid(40, 8);
+	QByteArray byte7 = auxByteArray.mid(48, 8);
+	QByteArray byte8 = auxByteArray.mid(56, 8);
+	QByteArray byte9 = auxByteArray.mid(64, 8);
 
 	double alpha1213;
 	QDataStream firstSignal(&byte1, QIODevice::ReadOnly);
@@ -51,9 +55,32 @@ double AlphaSignalDecoder::decodeSignal(const QByteArray& datagram)
 	fifthSignal >> alpha89;
 	qDebug() << alpha89;
 
+	double a;
+	QDataStream ss(&byte6, QIODevice::ReadOnly);
+	ss.setByteOrder(QDataStream::LittleEndian);
+	ss >> a;
+	qDebug() << a;
+
+	double b;
+	QDataStream aa(&byte7, QIODevice::ReadOnly);
+	aa.setByteOrder(QDataStream::LittleEndian);
+	aa >> b;
+	qDebug() << b;
+
+	double c;
+	QDataStream bb(&byte8, QIODevice::ReadOnly);
+	bb.setByteOrder(QDataStream::LittleEndian);
+	bb >> c;
+	qDebug() << c;
+
+	double d;
+	QDataStream uu(&byte9, QIODevice::ReadOnly);
+	uu.setByteOrder(QDataStream::LittleEndian);
+	uu >> d;
+	qDebug() << d;
+
 	return (-(alpha1213 * alpha1213) - alpha1112 + alpha910 + (alpha89 * alpha89));
 }
-//00 00 00 00 00 dc 46 3f
 
 double AlphaSignalDecoder::hexstr2double(const std::string& hexstr)
 {

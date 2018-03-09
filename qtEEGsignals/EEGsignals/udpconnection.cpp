@@ -41,9 +41,13 @@ QByteArray UdpConnection::getCurrentValue()
 
 void UdpConnection::setPort(const double &UDPPort)
 {
-	//theres a last message on the port waiting
 	mSocket = new QUdpSocket(this);
 	mSocket->bind(QHostAddress::Any, UDPPort);
 	mSocket->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 2000000);
 	connect(mSocket, SIGNAL(readyRead()), this, SLOT(readyRead()));
+}
+
+void UdpConnection::sendValues(const QByteArray &array , const QHostAddress &address , const int &port)
+{
+	mSocket->writeDatagram(array, address, port);
 }

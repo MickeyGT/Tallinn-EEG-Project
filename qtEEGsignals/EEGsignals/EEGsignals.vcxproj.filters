@@ -54,12 +54,24 @@
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicSpline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManagementThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="EEGsignals.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="UdpConnection.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DynamicSpline.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DataManagementThread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

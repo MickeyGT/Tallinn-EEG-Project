@@ -1,11 +1,14 @@
 //This class represents the main window of the application
-#include <QtWidgets/QMainWindow>
+#ifndef EEGSIGNALS_H
+#define EEGSIGNALS_H
+#include <QMainWindow>
 #include "ui_EEGsignals.h"
 #include <qdebug.h>
 #include <QHostAddress>
 #include "UdpConnection.h"
 #include "Barchart.h"
-
+#include "DynamicSpline.h"
+#include "DataManagementThread.h"
 
 class EEGsignals : public QMainWindow
 {
@@ -15,14 +18,13 @@ public:
 	EEGsignals(QWidget *parent = Q_NULLPTR);
 
 private:
+	
 	UdpConnection mAlphaUDPconnection;
 	UdpConnection mThetaUDPconnection;
-
-	enum
-	{
-		alphaChannel = 25000,
-		thetaChannel = 26000
-	};
+	QChartView* chartView;
+	QChartView* chartView2;
+	DynamicSpline* spline;
+	DynamicSpline* spline2;
 
 	Ui::EEGsignalsClass ui;
 
@@ -30,5 +32,6 @@ private:
 		void changeAlphaSignalPort();
 		void changeThetaSignalPort();
 		void beginVisualization();
-	
+		void sendData(const QByteArray &data);
 };
+#endif
