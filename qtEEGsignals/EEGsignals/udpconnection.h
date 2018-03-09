@@ -20,6 +20,7 @@ public:
 
 	QByteArray getCurrentValue();
 
+	void sendValues(const QByteArray & array , const QHostAddress &address, const int &port);
 	/**
 	*By calling the method the global sockey will be rebinded to another port.*
 	*Note that if there are datagrams being sent on that port the bind will not work.*
