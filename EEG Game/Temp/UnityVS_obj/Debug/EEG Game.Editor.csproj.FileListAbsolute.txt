@@ -1,2 +1,0 @@
-C:\Users\Gabriel\Documents\EEG Game\Temp\UnityVS_obj\Debug\EEG Game.Editor.csprojResolveAssemblyReference.cache
-C:\Users\Gabriel\Documents\EEG Game\Temp\UnityVS_obj\Debug\EEG Game.Editor.csproj.CoreCompileInputs.cache
