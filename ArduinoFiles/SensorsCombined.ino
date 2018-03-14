@@ -1,8 +1,8 @@
 #include <Wire.h>
 
 const int GSR=A0;
-int sensorValue=0;
-int gsr_average=0;
+long sensorValue=0;
+long gsr_average=0;
 
 void setup() 
 {
@@ -27,7 +27,7 @@ void loop()
       delay(5);
     }
    gsr_average = sum/10;
-   Serial.println("GSR measurement: "+gsr_average);
+   Serial.println(gsr_average);
     
     delay(500);
 }
