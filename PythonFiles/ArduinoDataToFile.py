@@ -2,7 +2,10 @@ import serial
 import socket
 from datetime import datetime
 arduino = serial.Serial('COM4', 9600, timeout=.1)
-file = open("testfile.txt", "a")
+today = datetime.now()
+today = str(today).replace(' ','@')[:-7]
+today = today.replace(':','.')
+file = open("Data"+today+".txt", "a")
 heart = 0
 gsr = 0
 ok1 = False
@@ -19,7 +22,7 @@ while True:
 		ok2 = True
 	if ok1 and ok2:
 		ok1=ok2=0
-		file = open("testfile.txt", "a")
+		file = open("Data"+today+".txt", "a")
 		dt = datetime.now()
 		file.write(str(dt)+" "+str(gsr)+" "+str(heart)+"\n")
 		file.close()
