@@ -1,8 +1,8 @@
 #ifndef DYNAMICSPLINE_H
 #define DYNAMICSPLINE_H
 
-#include <QtCharts/QChart>
-#include <QtCore/QTimer>
+#include <QChart>
+#include <QTimer>
 
 QT_CHARTS_BEGIN_NAMESPACE
 class QSplineSeries;
@@ -21,9 +21,11 @@ public:
 	virtual ~DynamicSpline();
 
 	void setSignalYValue(const qreal &signalYValue);
+	
 
 	public slots:
 	void handleTimeout();
+	void switchTimer();
 
 private:
 	QTimer m_timer;
@@ -33,6 +35,7 @@ private:
 	qreal m_step;
 	qreal m_x;
 	qreal m_y;
+	int a, b;
 
 };
 

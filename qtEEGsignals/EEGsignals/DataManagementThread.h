@@ -1,27 +1,37 @@
 #ifndef DATAMANAGEMENTTHREAD_H
 #define DATAMANAGEMENTTHREAD_H
 #include <QThread>
-#include "UdpConnection.h"
-#include "DynamicSpline.h"
-#include <QtCore/QTimer>
+#include <QTimer>
+#include <QUdpsocket>
+#include <QPair>
+
+#include "qcustomplot.h"
+#include "Utility.h"
 
 class DataManagementThread : public QThread
 {
 	Q_OBJECT
 
 public:
-	DataManagementThread();
-	DataManagementThread(DynamicSpline *spline , const int &port);
+	
+	DataManagementThread(const int &port);
 	~DataManagementThread();
-	void run();
+	void setUpConnection(const int &port);
+	void startStopConnection(const bool &flag);
 
 	public slots :
-	void readyRead();
+	void processDatagram();
+
+signals:
+	void updatePlot(const QString &value);
 
 private:
-	DynamicSpline* mMainWindowSpline;
-	QUdpSocket* mUDPconnection;
-	QByteArray mCurrentValue;
-	
+	QList < QPair<QVariant , QVariant> > signalMinMaxValues;
+	bool mAbortFlag;
+	QCustomPlot *mainWindowRealTimePlot;
+	QUdpSocket *mUDPconnection;
+
+	void updateSignalMinMaxValues(const QList<QVariant> &list);
+	QString getPercentage(const QList<QVariant> &list);
 };
 #endif

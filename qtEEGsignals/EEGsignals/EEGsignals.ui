@@ -14,12 +14,12 @@
    <string>EEGsignals</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="alphaChannelPortChanger">
+   <widget class="QPushButton" name="button1">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>40</y>
-      <width>191</width>
+      <y>90</y>
+      <width>101</width>
       <height>81</height>
      </rect>
     </property>
@@ -27,12 +27,12 @@
      <string>setAlphaChannel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="thetaChannelPortChanger">
+   <widget class="QPushButton" name="button2">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>190</y>
-      <width>191</width>
+      <y>290</y>
+      <width>101</width>
       <height>81</height>
      </rect>
     </property>
@@ -40,12 +40,12 @@
      <string>setThetaChannel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="getvalue">
+   <widget class="QPushButton" name="button3">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>350</y>
-      <width>191</width>
+      <x>160</x>
+      <y>90</y>
+      <width>101</width>
       <height>81</height>
      </rect>
     </property>
@@ -53,27 +53,38 @@
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
+   <widget class="QPushButton" name="button4">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>40</y>
-      <width>501</width>
-      <height>201</height>
+      <x>160</x>
+      <y>290</y>
+      <width>101</width>
+      <height>81</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout"/>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
    </widget>
-   <widget class="QWidget" name="gridLayoutWidget_2">
+   <widget class="QCustomPlot" name="CustomPlot" native="true">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>320</x>
       <y>240</y>
-      <width>501</width>
-      <height>191</height>
+      <width>451</width>
+      <height>231</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_2"/>
+   </widget>
+   <widget class="QCustomPlot" name="EEGAlphaSignalPlot" native="true">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>0</y>
+      <width>451</width>
+      <height>231</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -97,6 +108,14 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="EEGsignals.qrc"/>
  </resources>

@@ -1,12 +1,11 @@
 #ifndef BARCHART_H
 #define BARCHART_H
-
-#include <QtCharts/QChart>
-#include <QtCharts/QChartView>
-#include <QtCharts/QBarSeries>
-#include <QtCharts/QBarSet>
-#include <QtCharts/QLegend>
-#include <QtCharts/QBarCategoryAxis>
+#include <QChart>
+#include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QLegend>
+#include <QBarCategoryAxis>
 
 QT_CHARTS_USE_NAMESPACE
 

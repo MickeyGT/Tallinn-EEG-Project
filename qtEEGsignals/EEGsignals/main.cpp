@@ -1,6 +1,6 @@
-#include "EEGsignals.h"
 #include <QtWidgets/QApplication>
 
+#include "EEGsignals.h"
 
 int main(int argc, char *argv[])
 {

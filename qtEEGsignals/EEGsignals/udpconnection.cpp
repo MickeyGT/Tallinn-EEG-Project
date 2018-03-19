@@ -1,8 +1,9 @@
-#include "UdpConnection.h"
-#include <qdebug.h>
+#include <QDebug>
 #include <QHostAddress>
 #include <QDataStream>
 #include <QNetworkDatagram>
+
+#include "UdpConnection.h"
 
 UdpConnection::UdpConnection(QObject *parent) :
 	QObject(parent)
