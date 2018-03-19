@@ -23,7 +23,7 @@ public class UDP : MonoBehaviour
         udp = new UdpClient(56789);
         thread = new Thread(new ThreadStart(ThreadMethod));
         thread.Start();
-        i1 = i2 = i3 = i4 = i5 = i6 = i7 = i8 = 1;
+        i1 = i2 = i3 = i4 = i5 = i6 = i7 = i8 = 0;
     }
 
     void splitValues(String data)
