@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_EEGsignals_t {
-    QByteArrayData data[5];
-    char stringdata0[75];
+    QByteArrayData data[6];
+    char stringdata0[82];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,12 +34,14 @@ static const qt_meta_stringdata_EEGsignals_t qt_meta_stringdata_EEGsignals = {
 QT_MOC_LITERAL(0, 0, 10), // "EEGsignals"
 QT_MOC_LITERAL(1, 11, 21), // "changeAlphaSignalPort"
 QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 21), // "changeThetaSignalPort"
-QT_MOC_LITERAL(4, 56, 18) // "beginVisualization"
+QT_MOC_LITERAL(3, 34, 29), // "changeSkinConductorSignalPort"
+QT_MOC_LITERAL(4, 64, 12), // "realtimePlot"
+QT_MOC_LITERAL(5, 77, 4) // "data"
 
     },
     "EEGsignals\0changeAlphaSignalPort\0\0"
-    "changeThetaSignalPort\0beginVisualization"
+    "changeSkinConductorSignalPort\0"
+    "realtimePlot\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,12 +61,12 @@ static const uint qt_meta_data_EEGsignals[] = {
  // slots: name, argc, parameters, tag, flags
        1,    0,   29,    2, 0x0a /* Public */,
        3,    0,   30,    2, 0x0a /* Public */,
-       4,    0,   31,    2, 0x0a /* Public */,
+       4,    1,   31,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    5,
 
        0        // eod
 };
@@ -76,12 +78,11 @@ void EEGsignals::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->changeAlphaSignalPort(); break;
-        case 1: _t->changeThetaSignalPort(); break;
-        case 2: _t->beginVisualization(); break;
+        case 1: _t->changeSkinConductorSignalPort(); break;
+        case 2: _t->realtimePlot((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject EEGsignals::staticMetaObject = {

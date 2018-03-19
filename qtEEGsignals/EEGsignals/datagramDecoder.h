@@ -3,12 +3,16 @@
 //Future signal decoders should also use this interface .
 #ifndef DATAGRAMDECODER_H
 #define DATAGRAMDECODER_H
+#include <QDebug>
+#include <QDataStream>
 #include <QUdpSocket>
+#include <QList>
 class DatagramDecoder
 {
 public:
 	DatagramDecoder();
 	~DatagramDecoder();
-	virtual double decodeSignal(const QByteArray& datagram) = 0;
+	virtual QVariant decodeSignal(const QByteArray& datagram) = 0;
+
 };
 #endif

@@ -11,13 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -25,11 +25,12 @@ class Ui_EEGsignalsClass
 {
 public:
     QWidget *centralWidget;
-    QPushButton *alphaChannelPortChanger;
-    QPushButton *thetaChannelPortChanger;
-    QPushButton *getvalue;
-    QWidget *gridLayoutWidget;
-    QGridLayout *gridLayout;
+    QPushButton *button1;
+    QPushButton *button2;
+    QPushButton *button3;
+    QPushButton *button4;
+    QCustomPlot *CustomPlot;
+    QCustomPlot *EEGAlphaSignalPlot;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -41,23 +42,24 @@ public:
         EEGsignalsClass->resize(820, 527);
         centralWidget = new QWidget(EEGsignalsClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        alphaChannelPortChanger = new QPushButton(centralWidget);
-        alphaChannelPortChanger->setObjectName(QStringLiteral("alphaChannelPortChanger"));
-        alphaChannelPortChanger->setGeometry(QRect(40, 40, 191, 81));
-        thetaChannelPortChanger = new QPushButton(centralWidget);
-        thetaChannelPortChanger->setObjectName(QStringLiteral("thetaChannelPortChanger"));
-        thetaChannelPortChanger->setGeometry(QRect(40, 190, 191, 81));
-        getvalue = new QPushButton(centralWidget);
-        getvalue->setObjectName(QStringLiteral("getvalue"));
-        getvalue->setGeometry(QRect(40, 350, 191, 81));
-        gridLayoutWidget = new QWidget(centralWidget);
-        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(300, 40, 501, 391));
-        gridLayout = new QGridLayout(gridLayoutWidget);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
+        button1 = new QPushButton(centralWidget);
+        button1->setObjectName(QStringLiteral("button1"));
+        button1->setGeometry(QRect(40, 90, 101, 81));
+        button2 = new QPushButton(centralWidget);
+        button2->setObjectName(QStringLiteral("button2"));
+        button2->setGeometry(QRect(40, 290, 101, 81));
+        button3 = new QPushButton(centralWidget);
+        button3->setObjectName(QStringLiteral("button3"));
+        button3->setGeometry(QRect(160, 90, 101, 81));
+        button4 = new QPushButton(centralWidget);
+        button4->setObjectName(QStringLiteral("button4"));
+        button4->setGeometry(QRect(160, 290, 101, 81));
+        CustomPlot = new QCustomPlot(centralWidget);
+        CustomPlot->setObjectName(QStringLiteral("CustomPlot"));
+        CustomPlot->setGeometry(QRect(320, 240, 451, 231));
+        EEGAlphaSignalPlot = new QCustomPlot(centralWidget);
+        EEGAlphaSignalPlot->setObjectName(QStringLiteral("EEGAlphaSignalPlot"));
+        EEGAlphaSignalPlot->setGeometry(QRect(320, 0, 451, 231));
         EEGsignalsClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(EEGsignalsClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -78,9 +80,10 @@ public:
     void retranslateUi(QMainWindow *EEGsignalsClass)
     {
         EEGsignalsClass->setWindowTitle(QApplication::translate("EEGsignalsClass", "EEGsignals", nullptr));
-        alphaChannelPortChanger->setText(QApplication::translate("EEGsignalsClass", "setAlphaChannel", nullptr));
-        thetaChannelPortChanger->setText(QApplication::translate("EEGsignalsClass", "setThetaChannel", nullptr));
-        getvalue->setText(QApplication::translate("EEGsignalsClass", "PushButton", nullptr));
+        button1->setText(QApplication::translate("EEGsignalsClass", "setAlphaChannel", nullptr));
+        button2->setText(QApplication::translate("EEGsignalsClass", "setThetaChannel", nullptr));
+        button3->setText(QApplication::translate("EEGsignalsClass", "PushButton", nullptr));
+        button4->setText(QApplication::translate("EEGsignalsClass", "PushButton", nullptr));
     } // retranslateUi
 
 };

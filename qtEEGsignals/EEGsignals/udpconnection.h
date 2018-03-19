@@ -1,6 +1,6 @@
 //This class creates a UDP connection between devices via QUdpSocket.
 //It also has the functionality of receiving the datagram (readyRead() method) and storing it (currentyValue).
-
+//****THIS CLASS IS CURRENTLY NOT IN USE****
 #ifndef UDPCONNECTION_H
 #define UDPCONNECTION_H
 #include <QObject>

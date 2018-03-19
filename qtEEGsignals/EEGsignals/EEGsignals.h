@@ -2,14 +2,11 @@
 #ifndef EEGSIGNALS_H
 #define EEGSIGNALS_H
 #include <QMainWindow>
-#include "ui_EEGsignals.h"
-#include <qdebug.h>
+#include <QDebug>
 #include <QHostAddress>
-#include "UdpConnection.h"
-#include "Barchart.h"
-#include "DynamicSpline.h"
-#include "DataManagementThread.h"
 
+#include "DataManagementThread.h"
+#include "ui_EEGsignals.h"
 class EEGsignals : public QMainWindow
 {
 	Q_OBJECT
@@ -19,19 +16,18 @@ public:
 
 private:
 	
-	UdpConnection mAlphaUDPconnection;
-	UdpConnection mThetaUDPconnection;
-	QChartView* chartView;
-	QChartView* chartView2;
-	DynamicSpline* spline;
-	DynamicSpline* spline2;
+	void setUpRealTimePlot(QCustomPlot *widget);
 
+	QTimer timer_plot;
+
+	DataManagementThread *mAlphaSignalThread;
+	DataManagementThread *mSkinConductorSignalThread;
+	
 	Ui::EEGsignalsClass ui;
 
 	public slots :
 		void changeAlphaSignalPort();
-		void changeThetaSignalPort();
-		void beginVisualization();
-		void sendData(const QByteArray &data);
+		void changeSkinConductorSignalPort();
+		void realtimePlot(const QString &data);
 };
 #endif

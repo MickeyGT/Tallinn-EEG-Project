@@ -39,25 +39,16 @@
     <ClCompile Include="AlphaSignalDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Barchart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DatagramDecoder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ThetaSignalDecoder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UdpConnection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicSpline.cpp">
+    <ClCompile Include="DataManagementThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataManagementThread.cpp">
+    <ClCompile Include="qcustomplot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DancerSignalDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,13 +56,10 @@
     <QtMoc Include="EEGsignals.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="UdpConnection.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="DynamicSpline.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="DataManagementThread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="qcustomplot.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -89,16 +77,10 @@
     <ClInclude Include="AlphaSignalDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Barchart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DatagramDecoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThetaSignalDecoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DancerSignalDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
