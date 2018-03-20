@@ -49,8 +49,7 @@ public class UDP : MonoBehaviour
         index = Data.IndexOf(' ');
         i7 = Int32.Parse(Data.Substring(0, index));
         Data = Data.Substring(index + 1);
-        index = Data.IndexOf('\n');
-        i8 = Int32.Parse(Data.Substring(0, index));
+        i8 = Int32.Parse(Data);
     }
 
     void Update()
