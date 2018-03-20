@@ -42,42 +42,42 @@ public class lightController : MonoBehaviour
         ni8 = UDP.i8;
 
         if (ni1 > i1)
-            sl1.intensity = (ni1 - i1) / 5;
+            sl1.intensity += (ni1 - i1) / 5;
         else
             if(sl1.intensity > 0)
                 sl1.intensity = sl1.intensity - 1;
         if (ni2 > i2)
-            sl2.intensity = (ni2 - i2) / 5;
+            sl2.intensity += (ni2 - i2) / 5;
         else
             if (sl2.intensity > 0)
                 sl2.intensity = sl2.intensity - 1;
         if (ni3 > i3)
-            sl3.intensity = (ni3 - i3) / 5;
+            sl3.intensity += (ni3 - i3) / 5;
         else
             if (sl3.intensity > 0)
                 sl3.intensity = sl3.intensity - 1;
         if (ni4 > i4)
-            sl4.intensity = (ni4 - i4) / 5;
+            sl4.intensity += (ni4 - i4) / 5;
         else
             if (sl4.intensity > 0)
                 sl4.intensity = sl4.intensity - 1;
         if (ni5 > i5)
-            sl5.intensity = (ni5 - i5) / 5;
+            sl5.intensity += (ni5 - i5) / 5;
         else
             if (sl5.intensity > 0)
                 sl5.intensity = sl5.intensity - 1;
         if (ni6 > i6)
-            sl6.intensity = (ni6 - i6) / 5;
+            sl6.intensity += (ni6 - i6) / 5;
         else
             if (sl6.intensity > 0)
                 sl6.intensity = sl6.intensity - 1;
         if (ni7 > i7)
-            sl7.intensity = (ni7 - i7) / 5;
+            sl7.intensity += (ni7 - i7) / 5;
         else
             if (sl7.intensity > 0)
                 sl7.intensity = sl7.intensity - 1;
         if (ni8 > i8)
-            sl8.intensity = (ni8 - i8) / 5;
+            sl8.intensity += (ni8 - i8) / 5;
         else
             if (sl8.intensity > 0)
                 sl8.intensity = sl8.intensity - 1;
