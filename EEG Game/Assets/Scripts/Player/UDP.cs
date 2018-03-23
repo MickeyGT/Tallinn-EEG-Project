@@ -14,9 +14,11 @@ public class UDP : MonoBehaviour
     public static int power;
     private UdpClient udp;
     private bool running = true;
+    private int percentage, newPercentage;
 
     void Start()
     {
+        InvokeRepeating("UpdatePower", 1.0f, 1.0f);
         power = 1;
         udp = new UdpClient(56789);
         thread = new Thread(new ThreadStart(ThreadMethod));
@@ -31,6 +33,16 @@ public class UDP : MonoBehaviour
             //Process received data
             Debug.Log("Received: " + power);
         }
+    }
+
+    void UpdatePower()
+    {
+        if (newPercentage > percentage)
+            power += (newPercentage - percentage) / 5;
+        else
+            if(power>0)
+                power--;
+        percentage = newPercentage;
     }
 
 
@@ -56,8 +68,8 @@ public class UDP : MonoBehaviour
             try
             {
                 Byte[] receiveBytes = udp.Receive(ref RemoteIpEndPoint);
-                power = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
-                Debug.Log(power);
+                newPercentage = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
+                Debug.Log(percentage);
                 //Done, notify the Update function
                 precessData = true;
             }
