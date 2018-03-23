@@ -9,7 +9,7 @@ AlphaSignalDecoder::~AlphaSignalDecoder()
 {
 }
 
-QVariant AlphaSignalDecoder::decodeSignal(const QByteArray& datagram)
+double AlphaSignalDecoder::decodeSignal(const QByteArray& datagram)
 {	
 	QByteArray auxByteArray(datagram);
 	QByteArray byte1 = auxByteArray.mid(0, 8);
@@ -50,17 +50,4 @@ QVariant AlphaSignalDecoder::decodeSignal(const QByteArray& datagram)
 //	qDebug() << alpha89;
 
 	return (-(alpha1213 * alpha1213) - alpha1112 + alpha910 + (alpha89 * alpha89));
-}
-
-double AlphaSignalDecoder::hexstr2double(const std::string& hexstr)
-{
-	union
-	{
-		long long i;
-		double    d;
-	} value;
-
-	value.i = std::stoll(hexstr, nullptr, 16);
-
-	return value.d;
 }

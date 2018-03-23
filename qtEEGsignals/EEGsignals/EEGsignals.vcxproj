@@ -163,9 +163,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlphaSignalDecoder.cpp" />
+    <ClCompile Include="customMultipleInputsDialog.cpp" />
     <ClCompile Include="DancerSignalDecoder.cpp" />
-    <ClCompile Include="DataManagementThread.cpp" />
+    <ClCompile Include="DancerThread.cpp" />
     <ClCompile Include="EEGsignals.cpp" />
+    <ClCompile Include="GameThread.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="qcustomplot.cpp" />
     <ClCompile Include="Utility.cpp" />
@@ -181,9 +183,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlphaSignalDecoder.h" />
+    <ClInclude Include="customMultipleInputsDialog.h" />
     <ClInclude Include="DancerSignalDecoder.h" />
-    <QtMoc Include="DataManagementThread.h" />
+    <QtMoc Include="DancerThread.h">
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+    </QtMoc>
     <QtMoc Include="qcustomplot.h">
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+    </QtMoc>
+    <QtMoc Include="GameThread.h">
       <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
       <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
     </QtMoc>

@@ -2,42 +2,44 @@
 
 #include "AlphaSignalDecoder.h"
 #include "EEGsignals.h"
+#include "customMultipleInputsDialog.h"
 
 EEGsignals::EEGsignals(QWidget *parent) :
 	QMainWindow(parent)
 {
 	ui.setupUi(this);
 	
-	connect(ui.button3, SIGNAL(pressed()), this, SLOT(changeAlphaSignalPort()));
-	connect(ui.button4, SIGNAL(pressed()), this, SLOT(changeSkinConductorSignalPort()));
 
-	connect(ui.button1, SIGNAL(pressed()), this, SLOT(beginAlphaSignalTransmission()));
-	connect(ui.button2, SIGNAL(pressed()), this, SLOT(beginSkinConductorSignalTransmission()));
+	connect(ui.button3, SIGNAL(pressed()), this, SLOT(changeDancerSignalSendingValues()));
+//	connect(ui.button4, SIGNAL(pressed()), this, SLOT(changeSkinConductorSignalPort()));
+
+	connect(ui.button1, SIGNAL(pressed()), this, SLOT(changeDancerSignalRecevingPort()));
+//	connect(ui.button2, SIGNAL(pressed()), this, SLOT(beginSkinConductorSignalTransmission()));
 
 	setUpRealTimePlot(ui.EEGAlphaSignalPlot);
 	setUpRealTimePlot(ui.CustomPlot);
 
-	mAlphaSignalThread = new DataManagementThread(12345);
+//	mDancerThread = new DancerThread(12345);
+	mGameThread = new GameThread(25000);
 
-	connect(mAlphaSignalThread, SIGNAL(updatePlot(QString)), this, SLOT(realtimePlot(QString)));
+	connect(mGameThread, SIGNAL(updatePlot(QString)), this, SLOT(realtimePlot(QString)));
 }
 
-void EEGsignals::changeAlphaSignalPort()
+void EEGsignals::changeDancerSignalSendingValues()
+{
+	customMultipleInputsDialog *dial = new customMultipleInputsDialog;
+	QString ip = dial->getIp();
+	QString port = dial->getPort();
+	mDancerThread->setSendAddressAndPort(ip, port);
+}
+
+void EEGsignals::changeDancerSignalRecevingPort()
 {
 	bool ok;
 	int port = QInputDialog::getInt(this, tr("QInputDialog::getInteger()"),
-		tr("Port:"), 0, 0, 30000, 1, &ok);
+		tr("Port:"), 0, 0, 3000000, 1, &ok);
 	if (ok)
-		mAlphaSignalThread->setUpConnection(port);
-}
-
-void EEGsignals::changeSkinConductorSignalPort()
-{
-	bool ok;
-	int port = QInputDialog::getInt(this, tr("QInputDialog::getInteger()"),
-		tr("Port:"), 0, 0, 30000, 1, &ok);
-	if (ok)
-		mSkinConductorSignalThread->setUpConnection(port);
+		mDancerThread->changeRecevingPort(port);
 }
 
 void EEGsignals::setUpRealTimePlot(QCustomPlot *widget)

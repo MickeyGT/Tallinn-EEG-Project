@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_EEGsignals_t {
     QByteArrayData data[6];
-    char stringdata0[82];
+    char stringdata0[93];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,15 +32,15 @@ struct qt_meta_stringdata_EEGsignals_t {
 static const qt_meta_stringdata_EEGsignals_t qt_meta_stringdata_EEGsignals = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "EEGsignals"
-QT_MOC_LITERAL(1, 11, 21), // "changeAlphaSignalPort"
-QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 29), // "changeSkinConductorSignalPort"
-QT_MOC_LITERAL(4, 64, 12), // "realtimePlot"
-QT_MOC_LITERAL(5, 77, 4) // "data"
+QT_MOC_LITERAL(1, 11, 30), // "changeDancerSignalRecevingPort"
+QT_MOC_LITERAL(2, 42, 0), // ""
+QT_MOC_LITERAL(3, 43, 31), // "changeDancerSignalSendingValues"
+QT_MOC_LITERAL(4, 75, 12), // "realtimePlot"
+QT_MOC_LITERAL(5, 88, 4) // "data"
 
     },
-    "EEGsignals\0changeAlphaSignalPort\0\0"
-    "changeSkinConductorSignalPort\0"
+    "EEGsignals\0changeDancerSignalRecevingPort\0"
+    "\0changeDancerSignalSendingValues\0"
     "realtimePlot\0data"
 };
 #undef QT_MOC_LITERAL
@@ -77,8 +77,8 @@ void EEGsignals::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         EEGsignals *_t = static_cast<EEGsignals *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->changeAlphaSignalPort(); break;
-        case 1: _t->changeSkinConductorSignalPort(); break;
+        case 0: _t->changeDancerSignalRecevingPort(); break;
+        case 1: _t->changeDancerSignalSendingValues(); break;
         case 2: _t->realtimePlot((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }

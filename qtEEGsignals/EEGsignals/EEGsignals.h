@@ -5,7 +5,8 @@
 #include <QDebug>
 #include <QHostAddress>
 
-#include "DataManagementThread.h"
+#include "DancerThread.h"
+#include "GameThread.h"
 #include "ui_EEGsignals.h"
 class EEGsignals : public QMainWindow
 {
@@ -20,14 +21,14 @@ private:
 
 	QTimer timer_plot;
 
-	DataManagementThread *mAlphaSignalThread;
-	DataManagementThread *mSkinConductorSignalThread;
+	DancerThread *mDancerThread;
+	GameThread *mGameThread;
 	
 	Ui::EEGsignalsClass ui;
 
 	public slots :
-		void changeAlphaSignalPort();
-		void changeSkinConductorSignalPort();
+		void changeDancerSignalRecevingPort();
+		void changeDancerSignalSendingValues();
 		void realtimePlot(const QString &data);
 };
 #endif

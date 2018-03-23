@@ -50,7 +50,7 @@ public:
         button2->setGeometry(QRect(40, 290, 101, 81));
         button3 = new QPushButton(centralWidget);
         button3->setObjectName(QStringLiteral("button3"));
-        button3->setGeometry(QRect(160, 90, 101, 81));
+        button3->setGeometry(QRect(170, 90, 101, 81));
         button4 = new QPushButton(centralWidget);
         button4->setObjectName(QStringLiteral("button4"));
         button4->setGeometry(QRect(160, 290, 101, 81));
@@ -80,9 +80,9 @@ public:
     void retranslateUi(QMainWindow *EEGsignalsClass)
     {
         EEGsignalsClass->setWindowTitle(QApplication::translate("EEGsignalsClass", "EEGsignals", nullptr));
-        button1->setText(QApplication::translate("EEGsignalsClass", "setAlphaChannel", nullptr));
+        button1->setText(QApplication::translate("EEGsignalsClass", "RecevingPort", nullptr));
         button2->setText(QApplication::translate("EEGsignalsClass", "setThetaChannel", nullptr));
-        button3->setText(QApplication::translate("EEGsignalsClass", "PushButton", nullptr));
+        button3->setText(QApplication::translate("EEGsignalsClass", "Sending Options", nullptr));
         button4->setText(QApplication::translate("EEGsignalsClass", "PushButton", nullptr));
     } // retranslateUi
 
