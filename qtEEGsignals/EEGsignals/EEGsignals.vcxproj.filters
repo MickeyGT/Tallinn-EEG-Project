@@ -57,6 +57,9 @@
     <ClCompile Include="GameThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DataReceivingThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="EEGsignals.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="GameThread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DataReceivingThread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

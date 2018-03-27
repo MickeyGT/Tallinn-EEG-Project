@@ -19,8 +19,6 @@ private:
 	
 	void setUpRealTimePlot(QCustomPlot *widget);
 
-	QTimer timer_plot;
-
 	DancerThread *mDancerThread;
 	GameThread *mGameThread;
 	

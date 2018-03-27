@@ -10,8 +10,8 @@ DancerThread::~DancerThread()
 
 DancerThread::DancerThread(const int &receivePort)
 {
-	sendPort = "56789";
-	sendAddress.setAddress("192.168.0.5");
+	mSendPort = "56789";
+	mSendAddress.setAddress("192.168.0.5");
 	setUpConnection(receivePort);
 	initSignalMinMaxValue();
 }
@@ -34,7 +34,7 @@ void DancerThread::processDatagram()
 	qDebug() << "sent value is : " << percentageList;
 	QByteArray data;
 	data.append(percentageList);
-	mUDPconnection->writeDatagram(data, sendAddress, sendPort.toInt());
+	mUDPconnection->writeDatagram(data, mSendAddress, mSendPort.toInt());
 	
 	if (dataList.first().toInt() >= MINIMUMBORDER && dataList.first().toInt() <= MAXIMUMBORDER)
 		emit(updatePlot(dataList.first().toString()));
@@ -93,8 +93,8 @@ void DancerThread::initSignalMinMaxValue()
 
 void DancerThread::setSendAddressAndPort(const QString &address, const QString &port)
 {
-	sendAddress = address;
-	sendPort = port;
+	mSendAddress = address;
+	mSendPort = port;
 }
 
 void DancerThread::updateSignalMinMaxValues(const QList<QVariant> &list)

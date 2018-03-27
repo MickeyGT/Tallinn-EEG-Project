@@ -9,8 +9,8 @@
 class customMultipleInputsDialog : public QDialog
 {
 public:
-	QString ip;
-	QString port;
+	QString mIp;
+	QString mPort;
 	customMultipleInputsDialog();
 	~customMultipleInputsDialog();
 	QString getIp();

@@ -166,6 +166,7 @@
     <ClCompile Include="customMultipleInputsDialog.cpp" />
     <ClCompile Include="DancerSignalDecoder.cpp" />
     <ClCompile Include="DancerThread.cpp" />
+    <ClCompile Include="DataReceivingThread.cpp" />
     <ClCompile Include="EEGsignals.cpp" />
     <ClCompile Include="GameThread.cpp" />
     <ClCompile Include="main.cpp" />
@@ -194,6 +195,10 @@
       <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
     </QtMoc>
     <QtMoc Include="GameThread.h">
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+    </QtMoc>
+    <QtMoc Include="DataReceivingThread.h">
       <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
       <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
     </QtMoc>

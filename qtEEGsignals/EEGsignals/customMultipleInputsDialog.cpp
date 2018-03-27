@@ -26,8 +26,8 @@ customMultipleInputsDialog::customMultipleInputsDialog()
 	// Show the dialog as modal
 	if (dialog.exec() == QDialog::Accepted) 
 	{
-		ip = lineEdit->text();
-		port = lineEdit2->text();
+		mIp = lineEdit->text();
+		mPort = lineEdit2->text();
 	}
 }
 
@@ -37,10 +37,10 @@ customMultipleInputsDialog::~customMultipleInputsDialog()
 
 QString customMultipleInputsDialog::getIp()
 {
-	return ip;
+	return mIp;
 }
 
 QString customMultipleInputsDialog::getPort()
 {
-	return port;
+	return mPort;
 }

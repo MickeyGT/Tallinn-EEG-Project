@@ -5,10 +5,8 @@
 #include <QUdpsocket>
 #include <QPair>
 
-#include "qcustomplot.h"
+
 #include "Utility.h"
-
-
 
 class DancerThread : public QThread
 {
@@ -28,17 +26,16 @@ public:
 	public slots :
 	void processDatagram();
 
-signals:
+	signals:
 	void updatePlot(const QString &value);
 
 private:
 
-	QHostAddress sendAddress;
-	QString sendPort;
-
-	QList < QPair<QVariant , QVariant> > signalMinMaxValues;
+	QHostAddress mSendAddress;
+	QString mSendPort;
 	QUdpSocket *mUDPconnection;
 
+	QList < QPair<QVariant, QVariant> > signalMinMaxValues;
 	void initSignalMinMaxValue();
 	void updateSignalMinMaxValues(const QList<QVariant> &list);
 	QString getPercentage(const QList<QVariant> &list);

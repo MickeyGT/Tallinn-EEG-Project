@@ -29,8 +29,8 @@ signals:
 
 private:
 
-	QHostAddress sendAddress;
-	QString sendPort;
+	QHostAddress mSendAddress;
+	QString mSendPort;
 	QUdpSocket *mUDPconnection;
 
 	double mMinValue;
