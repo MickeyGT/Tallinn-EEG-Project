@@ -12,6 +12,7 @@ public class UDP : MonoBehaviour
     Thread thread;
     bool precessData = false;
     public static int power;
+    public static int sensitivity;
     private UdpClient udp;
     private bool running = true;
     private int percentage, newPercentage;
@@ -20,6 +21,7 @@ public class UDP : MonoBehaviour
     {
         InvokeRepeating("UpdatePower", 1.0f, 1.0f);
         power = 1;
+        sensitivity = 10;
         udp = new UdpClient(56789);
         thread = new Thread(new ThreadStart(ThreadMethod));
         thread.Start();
@@ -37,8 +39,8 @@ public class UDP : MonoBehaviour
 
     void UpdatePower()
     {
-        if (newPercentage > percentage)
-            power += (newPercentage - percentage) / 5;
+        if (newPercentage >= percentage+sensitivity)
+            power += (newPercentage - percentage) / sensitivity;
         else
             if(power>0)
                 power--;
