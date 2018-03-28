@@ -1,10 +1,2 @@
-﻿  Moc'ing DancerThread.h...
-  Moc'ing DataReceivingThread.h...
-  DancerThread.cpp
-  DataReceivingThread.cpp
-  EEGsignals.cpp
-  main.cpp
-  moc_DancerThread.cpp
-  moc_DataReceivingThread.cpp
-  moc_EEGsignals.cpp
+﻿  DataReceivingThread.cpp
   EEGsignals.vcxproj -> C:\Users\radu\Documents\GitHub\Tallinn-EEG-Project\qtEEGsignals\x64\Debug\EEGsignals.exe

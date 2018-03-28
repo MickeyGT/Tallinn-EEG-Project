@@ -3,7 +3,6 @@
 
 #include <QDebug>
 #include <QDataStream>
-#include <QUdpSocket>
 #include <QList>
 class AlphaSignalDecoder
 {

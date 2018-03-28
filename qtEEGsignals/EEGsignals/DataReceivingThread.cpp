@@ -4,6 +4,7 @@
 
 DataReceivingThread::DataReceivingThread()
 {
+	mFilePath = QDir::currentPath();
 }
 
 

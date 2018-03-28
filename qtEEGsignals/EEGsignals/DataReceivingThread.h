@@ -2,6 +2,12 @@
 #define DATARECEIVINGTHREAD_H
 #include <QThread>
 #include <QUdpsocket>
+#include <QDir>
+
+#include "qtcsv/stringdata.h"
+#include "qtcsv/reader.h"
+#include "qtcsv/writer.h"
+
 class DataReceivingThread : public QThread
 {
 	Q_OBJECT
@@ -19,12 +25,13 @@ public:
 		void updatePlot(const QString &value);
 
 protected:
+	QString mFilePath;
 	QString mSendPort;
 	QHostAddress mSendAddress;
 	QUdpSocket *mUDPconnection;
-
+	void setUpConnection(const int &receivePort);
 
 private:
-	void setUpConnection(const int &receivePort);
+	
 };
 #endif

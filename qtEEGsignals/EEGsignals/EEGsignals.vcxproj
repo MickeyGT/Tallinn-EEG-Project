@@ -163,6 +163,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlphaSignalDecoder.cpp" />
+    <ClCompile Include="AlphaThetaGameThread.cpp" />
+    <ClCompile Include="AlphaThetaSignalDecoder.cpp" />
     <ClCompile Include="customMultipleInputsDialog.cpp" />
     <ClCompile Include="DancerSignalDecoder.cpp" />
     <ClCompile Include="DancerThread.cpp" />
@@ -184,6 +186,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlphaSignalDecoder.h" />
+    <ClInclude Include="AlphaThetaGameThread.h" />
+    <ClInclude Include="AlphaThetaSignalDecoder.h" />
     <ClInclude Include="customMultipleInputsDialog.h" />
     <ClInclude Include="DancerSignalDecoder.h" />
     <QtMoc Include="DancerThread.h">

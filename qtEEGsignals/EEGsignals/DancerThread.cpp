@@ -14,6 +14,7 @@ DancerThread::DancerThread(const int &receivePort)
 	mSendAddress.setAddress("192.168.0.5");
 	setUpConnection(receivePort);
 	initSignalMinMaxValue();
+	mFilePath += "/DancerDataLogs.csv";
 }
 
 
@@ -40,24 +41,6 @@ void DancerThread::processDatagram()
 		emit(updatePlot(dataList.first().toString()));
 }
 
-void DancerThread::setUpConnection(const int &receivePort)
-{
-	mUDPconnection = new QUdpSocket(this);
-	mUDPconnection->bind(QHostAddress::Any, receivePort);
-	mUDPconnection->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 16);
-	connect(mUDPconnection, SIGNAL(readyRead()), this, SLOT(processDatagram()));
-}
-
-void DancerThread::changeRecevingPort(const int &receivePort)
-{
-	bool ok = disconnect(mUDPconnection, SIGNAL(readyRead()), this, SLOT(processDatagram()));
-	delete mUDPconnection;
-
-	mUDPconnection = new QUdpSocket(this);
-	mUDPconnection->bind(QHostAddress::Any, receivePort);
-	mUDPconnection->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 16);
-	connect(mUDPconnection, SIGNAL(readyRead()), this, SLOT(processDatagram()));
-}
 
 QString DancerThread::getPercentage(const QList<QVariant> &list)
 {
@@ -84,6 +67,7 @@ QString DancerThread::getPercentage(const QList<QVariant> &list)
 	return percentageList;
 }
 
+
 void DancerThread::initSignalMinMaxValue()
 {
 	QPair<QVariant, QVariant> initPair = qMakePair(10000, -10000);
@@ -91,11 +75,6 @@ void DancerThread::initSignalMinMaxValue()
 		signalMinMaxValues.append(initPair);
 }
 
-void DancerThread::setSendAddressAndPort(const QString &address, const QString &port)
-{
-	mSendAddress = address;
-	mSendPort = port;
-}
 
 void DancerThread::updateSignalMinMaxValues(const QList<QVariant> &list)
 {

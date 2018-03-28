@@ -5,10 +5,10 @@
 #include <QUdpsocket>
 #include <QPair>
 
-
+#include "DataReceivingThread.h"
 #include "Utility.h"
 
-class DancerThread : public QThread
+class DancerThread : public DataReceivingThread
 {
 	#define MINIMUMBORDER - 1000
 	#define MAXIMUMBORDER	1000
@@ -19,21 +19,11 @@ public:
 	
 	DancerThread(const int &receivePort);
 	~DancerThread();
-	void setUpConnection(const int &receivePort);
-	void setSendAddressAndPort(const QString &address, const QString &port);
-	void changeRecevingPort(const int &receivePort);
 
 	public slots :
 	void processDatagram();
 
-	signals:
-	void updatePlot(const QString &value);
-
 private:
-
-	QHostAddress mSendAddress;
-	QString mSendPort;
-	QUdpSocket *mUDPconnection;
 
 	QList < QPair<QVariant, QVariant> > signalMinMaxValues;
 	void initSignalMinMaxValue();

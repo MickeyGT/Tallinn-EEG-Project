@@ -4,12 +4,12 @@
 #include <QThread>
 #include <QTimer>
 #include <QUdpsocket>
-#include <QPair>
 
+#include "DataReceivingThread.h"
 #include "qcustomplot.h"
 #include "Utility.h"
 
-class GameThread : public QThread
+class GameThread : public DataReceivingThread
 {
 	Q_OBJECT
 
@@ -17,22 +17,10 @@ public:
 	GameThread(const int &receivePort);
 	~GameThread();
 
-	void setUpConnection(const int &receivePort);
-	void setSendAddressAndPort(const QString &address, const QString &port);
-	void changeRecevingPort(const int &receivePort);
-
 	public slots :
-	void processDatagram();
-
-signals:
-	void updatePlot(const QString &value);
+		void processDatagram();
 
 private:
-
-	QHostAddress mSendAddress;
-	QString mSendPort;
-	QUdpSocket *mUDPconnection;
-
 	double mMinValue;
 	double mMaxValue;
 

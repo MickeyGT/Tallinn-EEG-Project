@@ -7,6 +7,7 @@
 
 #include "DancerThread.h"
 #include "GameThread.h"
+#include "AlphaThetaGameThread.h"
 #include "ui_EEGsignals.h"
 class EEGsignals : public QMainWindow
 {
@@ -21,12 +22,14 @@ private:
 
 	DancerThread *mDancerThread;
 	GameThread *mGameThread;
+	AlphaThetaGameThread *mAlphaThetaThread;
 	
 	Ui::EEGsignalsClass ui;
 
 	public slots :
 		void changeDancerSignalRecevingPort();
 		void changeDancerSignalSendingValues();
-		void realtimePlot(const QString &data);
+		void alphaSignalPlot(const QString &data);
+		void alphaThetaSignalPlot(const QString &data);
 };
 #endif

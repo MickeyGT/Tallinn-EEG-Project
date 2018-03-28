@@ -1,14 +1,19 @@
 #include "GameThread.h"
-
 #include "AlphaSignalDecoder.h"
 
 GameThread::GameThread(const int &receivePort)
 {
-	sendPort = "56789";
-	sendAddress.setAddress("192.168.0.5");
+	mSendPort = "25000";
+	mSendAddress.setAddress("192.168.0.5");
 	setUpConnection(receivePort);
 	mMinValue = 10000;
 	mMaxValue = -10000;
+	mFilePath += "/GameDataLogs.csv";
+
+	/*QtCSV::StringData csvData;
+	csvData.addRow("asdf");
+	for (int i = 0; i < 5; i++)
+		QtCSV::Writer::write(mFilePath, csvData ,"," ,"\"" ,QtCSV::Writer::APPEND);*/
 }
 
 
@@ -25,28 +30,21 @@ void GameThread::processDatagram()
 	mUDPconnection->readDatagram(buffer.data(), buffer.size());
 
 	AlphaSignalDecoder decoder;
-
 	double value = decoder.decodeSignal(buffer);
 
 	updateMinMaxValue(value);
 	QString percentage = getPercentage(value);
 
 	QByteArray data;
+	
 	data.append(percentage);
-	mUDPconnection->writeDatagram(data, sendAddress, sendPort.toInt());
+	mUDPconnection->writeDatagram(data, mSendAddress, mSendPort.toInt());
 
 	qDebug() << "sending percentage: " << percentage;
 
 	emit(updatePlot(percentage));
 }
 
-void GameThread::setUpConnection(const int &receivePort)
-{
-	mUDPconnection = new QUdpSocket(this);
-	mUDPconnection->bind(QHostAddress::Any, receivePort);
-	mUDPconnection->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 16);
-	connect(mUDPconnection, SIGNAL(readyRead()), this, SLOT(processDatagram()));
-}
 
 void GameThread::updateMinMaxValue(const double &value)
 {
@@ -59,6 +57,7 @@ void GameThread::updateMinMaxValue(const double &value)
 		mMinValue = value;
 	}
 }
+
 
 QString GameThread::getPercentage(const double &value)
 {

@@ -21,8 +21,10 @@ EEGsignals::EEGsignals(QWidget *parent) :
 
 //	mDancerThread = new DancerThread(12345);
 	mGameThread = new GameThread(25000);
+	mAlphaThetaThread = new AlphaThetaGameThread(26000);
 
-	connect(mGameThread, SIGNAL(updatePlot(QString)), this, SLOT(realtimePlot(QString)));
+	connect(mGameThread, SIGNAL(updatePlot(QString)), this, SLOT(alphaSignalPlot(QString)));
+	connect(mAlphaThetaThread, SIGNAL(updatePlot(QString)), this, SLOT(alphaThetaSignalPlot(QString)));
 }
 
 void EEGsignals::changeDancerSignalSendingValues()
@@ -70,24 +72,37 @@ void EEGsignals::setUpRealTimePlot(QCustomPlot *widget)
 	widget->yAxis2->setTickLabels(false);
 }
 
-void EEGsignals::realtimePlot(const QString &value)
+void EEGsignals::alphaSignalPlot(const QString &value)
 {
 	static QTime time(QTime::currentTime());
 	double key = time.elapsed() / 1000.0;
 	static double lastPointKey = 0;
+
 	if (key - lastPointKey > 0.002)
 	{
 		ui.EEGAlphaSignalPlot->graph(0)->addData(key, value.toDouble());
-		/*ui.CustomPlot->graph(0)->addData(key, value.toDouble());*/
 		lastPointKey = key;
 	}
 
-	/* make key axis range scroll right with the data at a constant range of 8. */
 	ui.EEGAlphaSignalPlot->graph(0)->rescaleValueAxis();
 	ui.EEGAlphaSignalPlot->xAxis->setRange(key, 8, Qt::AlignRight);
 	ui.EEGAlphaSignalPlot->replot();
+}
 
-	/*ui.CustomPlot->graph(0)->rescaleValueAxis();
+
+void EEGsignals::alphaThetaSignalPlot(const QString &value)
+{
+	static QTime time(QTime::currentTime());
+	double key = time.elapsed() / 1000.0;
+	static double lastPointKey = 0;
+
+	if (key - lastPointKey > 0.002)
+	{
+		ui.CustomPlot->graph(0)->addData(key, value.toDouble());
+		lastPointKey = key;
+	}
+
+	ui.CustomPlot->graph(0)->rescaleValueAxis();
 	ui.CustomPlot->xAxis->setRange(key, 8, Qt::AlignRight);
-	ui.CustomPlot->replot();*/
+	ui.CustomPlot->replot();
 }
