@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System;
 using System.Security.Permissions;
+using UnityEngine.UI;
 
 public class UDP : MonoBehaviour
 {
@@ -13,18 +14,29 @@ public class UDP : MonoBehaviour
     bool precessData = false;
     public static int power;
     public static int sensitivity;
-    private UdpClient udp;
+    public static Boolean alphaThetaSwitch;
+    private UdpClient udpHighAlph,udpAlphThet;
     private bool running = true;
     private int percentage, newPercentage;
+    public Toggle alphaThetaToggle;
 
     void Start()
     {
         InvokeRepeating("UpdatePower", 1.0f, 1.0f);
         power = 1;
+        alphaThetaSwitch = true;
+        alphaThetaToggle.onValueChanged.AddListener(delegate { ToggleValueChanged(alphaThetaToggle); });
         sensitivity = 10;
-        udp = new UdpClient(56789);
+        udpHighAlph = new UdpClient(25000);
+        udpAlphThet = new UdpClient(26000);
         thread = new Thread(new ThreadStart(ThreadMethod));
         thread.Start();
+    }
+
+    void ToggleValueChanged(Toggle change)
+    {
+        Debug.Log("Toggle changed, now is" + alphaThetaToggle.isOn);
+        alphaThetaSwitch = alphaThetaToggle.isOn;
     }
 
     void Update()
@@ -33,7 +45,7 @@ public class UDP : MonoBehaviour
         {
             precessData = false;
             //Process received data
-            Debug.Log("Received: " + power);
+            Debug.Log("Received: " + power + "switch Active:" + alphaThetaSwitch);
         }
     }
 
@@ -56,7 +68,8 @@ public class UDP : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        udp.Close();
+        udpHighAlph.Close();
+        udpAlphThet.Close();
         running = false;
         KillTheThread();
         
@@ -66,18 +79,37 @@ public class UDP : MonoBehaviour
     {
         while (running)
         {
-            IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
-            try
+            if (alphaThetaSwitch)
             {
-                Byte[] receiveBytes = udp.Receive(ref RemoteIpEndPoint);
-                newPercentage = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
-                Debug.Log(percentage);
-                //Done, notify the Update function
-                precessData = true;
+                IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                try
+                {
+                    Byte[] receiveBytes = udpAlphThet.Receive(ref RemoteIpEndPoint);
+                    newPercentage = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
+                    Debug.Log(percentage);
+                    //Done, notify the Update function
+                    precessData = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.ToString());
+                IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                try
+                {
+                    Byte[] receiveBytes = udpHighAlph.Receive(ref RemoteIpEndPoint);
+                    newPercentage = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
+                    Debug.Log(percentage);
+                    //Done, notify the Update function
+                    precessData = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
             }
         }
     }
