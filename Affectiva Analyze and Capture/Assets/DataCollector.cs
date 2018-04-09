@@ -39,6 +39,7 @@ using System.IO;
                 // Add some text to the file.
                 sw.WriteLine(face.ToString());
             }
+            /*
                 //Retrieve the Emotions Scores
             face.Emotions.TryGetValue(Emotions.Contempt, out currentContempt);
             face.Emotions.TryGetValue(Emotions.Valence, out currentValence);
@@ -55,6 +56,7 @@ using System.IO;
 
             //Retrieve the coordinates of the facial landmarks (face feature points)
             featurePointsList = face.FeaturePoints;
+            */
         }
     }
 }

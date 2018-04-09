@@ -174,23 +174,8 @@ namespace Affdex
         public override string ToString()
         {
             /*
-            string s = "Affdex Face\n";
-            s += String.Format("Measurements: {0:F2}, {1:F2}, {2:F2} : {3:F2}\n", Measurements.Orientation.x, Measurements.Orientation.y, Measurements.Orientation.z, Measurements.interOcularDistance);
-            s += "Expressions\n";
-            for(int i = 0; i < Expressions.Count; i++)
-            {
-                s += String.Format("{0} : {1:F2}\n", (Affdex.Expressions)i, Expressions[(Affdex.Expressions)i]);
-            }
-            s += "Emotions\n";
-            for(int i = 0; i < Emotions.Count; i++)
-            {
-                s += String.Format("{0} : {1:F2}\n", (Affdex.Emotions)i, Emotions[(Affdex.Emotions)i]);
-            }
-            return s;
-            */
-
-            string s = "Affdex Face\n";
-            s += String.Format("Measurements: {0:F2}, {1:F2}, {2:F2} : {3:F2}\n", Measurements.Orientation.x, Measurements.Orientation.y, Measurements.Orientation.z, Measurements.interOcularDistance);
+            string s = "";
+            s += String.Format("Measurements: X {0:F2}, Y {1:F2}, Z {2:F2} : Inter-Ocular Distance {3:F2}\n", Measurements.Orientation.x, Measurements.Orientation.y, Measurements.Orientation.z, Measurements.interOcularDistance);
             s += "Expressions\n";
             for (int i = 0; i < Expressions.Count; i++)
             {
@@ -200,6 +185,24 @@ namespace Affdex
             for (int i = 0; i < Emotions.Count; i++)
             {
                 s += String.Format("{0} : {1:F2}\n", (Affdex.Emotions)i, Emotions[(Affdex.Emotions)i]);
+            }
+            foreach (Affdex.FeaturePoint point in FeaturePoints)
+            {
+                s += point.id + " " + point.x + " " + point.y + " ";
+            }
+            return s;
+            */
+            DateTime baseDate = new DateTime(1970, 1, 1);
+            TimeSpan diff = DateTime.Now - baseDate;
+            string s = (long)diff.TotalMilliseconds+" ";
+            s += String.Format("{0:F2} {1:F2} {2:F2} {3:F2} ", Measurements.Orientation.x, Measurements.Orientation.y, Measurements.Orientation.z, Measurements.interOcularDistance);
+            for (int i = 0; i < Expressions.Count; i++)
+            {
+                s += String.Format("{0:F2} ", Expressions[(Affdex.Expressions)i]);
+            }
+            for (int i = 0; i < Emotions.Count; i++)
+            {
+                s += String.Format("{0:F2} ", Emotions[(Affdex.Emotions)i]);
             }
             foreach (Affdex.FeaturePoint point in FeaturePoints)
             {
