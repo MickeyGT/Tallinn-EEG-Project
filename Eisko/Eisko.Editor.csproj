@@ -139,6 +139,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Affdex\Plugins\Editor\DetectorEditor.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Editor\DemoScenesToolsMenu.cs" />
+    <Compile Include="Assets\Tobii\Framework\Editor\EyeTrackingClientLibraryDeployer.cs" />
+    <Compile Include="Assets\Tobii\Framework\Editor\EyeTrackingSettingsWindow.cs" />
+    <Compile Include="Assets\Tobii\Framework\Editor\TobiiEulaCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\affdex-data-3\README.txt" />
@@ -149,6 +153,12 @@
     <None Include="Assets\StreamingAssets\affdex-data-ios\haarcascade\haarcascade_frontalface_alt2.xml" />
     <None Include="Assets\StreamingAssets\affdex-data-osx\haarcascade\004_lbp_15stage.xml" />
     <None Include="Assets\StreamingAssets\affdex-data-osx\haarcascade\haarcascade_frontalface_alt2.xml" />
+    <None Include="Assets\Tobii\DemoScenes\Fonts\LICENSE.txt" />
+    <None Include="Assets\Tobii\DemoScenes\Readme-DemoSceneSetup.txt" />
+    <None Include="Assets\Tobii\DemoScenes\Shaders\Highlight\Highlight.shader" />
+    <None Include="Assets\Tobii\DemoScenes\Shaders\Highlight\MobileBlur.shader" />
+    <None Include="Assets\Tobii\DemoScenes\Shaders\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\Tobii\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
