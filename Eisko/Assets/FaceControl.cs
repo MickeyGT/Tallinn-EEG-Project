@@ -4,21 +4,20 @@ using UnityEngine;
 using Affdex;
 using UnityEditor;
 using System.IO;
-using Affdex;
 
 public class FaceControl : ImageResultsListener
 {
 
     Transform mainCamera;
     CameraInput cameraInput;
+    // Webcam name is needed since the Affectiva SDK isn't always picking the correct webcam.
     string cameraName = "USB 2.0 Webcam Device";
     string currentCameraName = "";
     private float EyeClosure, Smirk, MouthOpen, Smile, BrowRaise, BrowFurrow,Disgust,
         Fear,Anger,Sadness,Surprise, Joy;
     SkinnedMeshRenderer skinnedMeshRenderer;
     Mesh skinnedMesh;
-    private static GameObject  head;
-
+    public static float OrientationX, OrientationY;
 
     public override void onFaceFound(float timestamp, int faceId)
     {
@@ -62,13 +61,14 @@ public class FaceControl : ImageResultsListener
             skinnedMeshRenderer.SetBlendShapeWeight(skinnedMesh.GetBlendShapeIndex("BS_node.Eyes_Closed_Max"), EyeClosure);
             skinnedMeshRenderer.SetBlendShapeWeight(skinnedMesh.GetBlendShapeIndex("BS_node.Eyebrows_Raised"), BrowRaise);
             skinnedMeshRenderer.SetBlendShapeWeight(skinnedMesh.GetBlendShapeIndex("BS_node.Eyebrows_Frown"), BrowFurrow);
-            //head.transform.rotation = Quaternion.Euler(face.Measurements.Orientation.x, face.Measurements.Orientation.y,head.transform.rotation.z);
+            OrientationX = face.Measurements.Orientation.x;
+            OrientationY = face.Measurements.Orientation.y;
         }
     }
 
     void Start ()
     {
-        head = GameObject.Find("Head_jnt");
+        OrientationX = OrientationY = 0;
     }
 
 	void Update ()

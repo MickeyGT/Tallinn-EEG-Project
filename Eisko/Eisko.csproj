@@ -96,6 +96,7 @@
     <Compile Include="Assets\Affdex\Plugins\Scripts\iOSNativePlatform.cs" />
     <Compile Include="Assets\EyeControllerScript.cs" />
     <Compile Include="Assets\FaceControl.cs" />
+    <Compile Include="Assets\HeadOrientation.cs" />
     <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUI.cs" />
     <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUIForCanvas.cs" />
     <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUIOpacityOverrideForCanvas.cs" />
