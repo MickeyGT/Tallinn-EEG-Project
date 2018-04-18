@@ -36,27 +36,9 @@ using System.IO;
 
             using (StreamWriter sw = new StreamWriter("CollectedData.txt",true))
             {
-                // Add some text to the file.
+                // The ToString function has been modified so it writes to file in the needed format. See Face.cs for format.
                 sw.WriteLine(face.ToString());
             }
-            /*
-                //Retrieve the Emotions Scores
-            face.Emotions.TryGetValue(Emotions.Contempt, out currentContempt);
-            face.Emotions.TryGetValue(Emotions.Valence, out currentValence);
-            face.Emotions.TryGetValue(Emotions.Anger, out currentAnger);
-            face.Emotions.TryGetValue(Emotions.Fear, out currentFear);
-
-            //Retrieve the Smile Score
-            face.Expressions.TryGetValue(Expressions.Smile, out currentSmile);
-
-
-            //Retrieve the Interocular distance, the distance between two outer eye corners.
-            currentInterocularDistance = face.Measurements.interOcularDistance;
-
-
-            //Retrieve the coordinates of the facial landmarks (face feature points)
-            featurePointsList = face.FeaturePoints;
-            */
         }
     }
 }

@@ -20,6 +20,7 @@ public class FaceControl : ImageResultsListener
         Fear,Anger,Sadness,Surprise, Joy;
     SkinnedMeshRenderer skinnedMeshRenderer;
     Mesh skinnedMesh;
+    // The values for the head orientation from affectiva.
     public static float OrientationX, OrientationY,OrientationZ;
 
     public override void onFaceFound(float timestamp, int faceId)
@@ -50,6 +51,7 @@ public class FaceControl : ImageResultsListener
         skinnedMeshRenderer.SetBlendShapeWeight(skinnedMesh.GetBlendShapeIndex("BS_node.Eyebrows_Frown"), BrowFurrow);
     }
 
+    // Function that is called when the Affectiva SDK has results ready.
     public override void onImageResults(Dictionary<int, Face> faces)
     {
         Debug.Log("Got face results");
@@ -58,6 +60,7 @@ public class FaceControl : ImageResultsListener
         {
             int FaceId = pair.Key;
             Face face = pair.Value;
+            // Getting the Expressions and emotions values from the SDK.
             face.Expressions.TryGetValue(Expressions.Smile, out Smile);
             face.Expressions.TryGetValue(Expressions.EyeClosure, out EyeClosure);
             face.Expressions.TryGetValue(Expressions.MouthOpen, out MouthOpen);
@@ -80,17 +83,20 @@ public class FaceControl : ImageResultsListener
     void Start ()
     {
         OrientationX = OrientationY = 0;
-        // Standard processing type.
+        // Standard processing type. Set this to whatever processing type is needed.(Mirror,UDP,File,etc.)
         processingType = "Mirror";
     }
 
 	void Update ()
     {
+        /* Code needed to select the correct webcam for affectiva SDK. Change name of the cameraName variable
+        with correct webcam name or comment the code if Affectiva selects correct webcam. */
         if (currentCameraName != cameraName)
         {
             cameraInput.SelectCamera(true, cameraName);
             currentCameraName = cameraName;
         }
+
         if(processingType=="Mirror")
         {
             setBlendShape(EyeClosure,Smirk,MouthOpen,Smile,BrowRaise,BrowFurrow,Disgust,Fear,Anger,Sadness, Surprise, Joy);
@@ -104,6 +110,7 @@ public class FaceControl : ImageResultsListener
 
     void Awake()
     {
+        // Assign compoments on Awake.
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         cameraInput = mainCamera.GetComponent<CameraInput>();
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();

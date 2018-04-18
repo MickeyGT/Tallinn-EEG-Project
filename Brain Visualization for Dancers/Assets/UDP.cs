@@ -20,6 +20,7 @@ public class UDP : MonoBehaviour
 
     void Start()
     {
+        // Create a new UDP client and its thread.
         udp = new UdpClient(56789);
         thread = new Thread(new ThreadStart(ThreadMethod));
         thread.Start();
@@ -27,6 +28,7 @@ public class UDP : MonoBehaviour
             intensities[i] = 0;
     }
 
+    // Function that takes care of the value splitting from the Data string and places the values in the intensities array.
     void splitValues(String data)
     {
         for(int i=1;i<=7;i++)
@@ -49,7 +51,7 @@ public class UDP : MonoBehaviour
         }
     }
 
-
+    // Function that kills the thread.
     [SecurityPermissionAttribute(SecurityAction.Demand, ControlThread = true)]
     private void KillTheThread()
     {
@@ -68,6 +70,7 @@ public class UDP : MonoBehaviour
     {
         while (running)
         {
+            // Wait for UDP package.
             IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
             try
             {

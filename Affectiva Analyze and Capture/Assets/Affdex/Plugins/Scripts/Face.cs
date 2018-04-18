@@ -173,37 +173,23 @@ namespace Affdex
         /// </summary>
         public override string ToString()
         {
-            /*
-            string s = "";
-            s += String.Format("Measurements: X {0:F2}, Y {1:F2}, Z {2:F2} : Inter-Ocular Distance {3:F2}\n", Measurements.Orientation.x, Measurements.Orientation.y, Measurements.Orientation.z, Measurements.interOcularDistance);
-            s += "Expressions\n";
-            for (int i = 0; i < Expressions.Count; i++)
-            {
-                s += String.Format("{0} : {1:F2}\n", (Affdex.Expressions)i, Expressions[(Affdex.Expressions)i]);
-            }
-            s += "Emotions\n";
-            for (int i = 0; i < Emotions.Count; i++)
-            {
-                s += String.Format("{0} : {1:F2}\n", (Affdex.Emotions)i, Emotions[(Affdex.Emotions)i]);
-            }
-            foreach (Affdex.FeaturePoint point in FeaturePoints)
-            {
-                s += point.id + " " + point.x + " " + point.y + " ";
-            }
-            return s;
-            */
+            // Get the date in Epoch format. (ms since 1970)
             DateTime baseDate = new DateTime(1970, 1, 1);
             TimeSpan diff = DateTime.Now - baseDate;
             string s = (long)diff.TotalMilliseconds+" ";
+            // Add the X,Y,Z and the interocular distance.
             s += String.Format("{0:F2} {1:F2} {2:F2} {3:F2} ", Measurements.Orientation.x, Measurements.Orientation.y, Measurements.Orientation.z, Measurements.interOcularDistance);
+            // Add all the Expressions.
             for (int i = 0; i < Expressions.Count; i++)
             {
                 s += String.Format("{0:F2} ", Expressions[(Affdex.Expressions)i]);
             }
+            // Add all the Emotions.
             for (int i = 0; i < Emotions.Count; i++)
             {
                 s += String.Format("{0:F2} ", Emotions[(Affdex.Emotions)i]);
             }
+            // Add all the Feature points.
             foreach (Affdex.FeaturePoint point in FeaturePoints)
             {
                 s += point.id + " " + point.x + " " + point.y + " ";

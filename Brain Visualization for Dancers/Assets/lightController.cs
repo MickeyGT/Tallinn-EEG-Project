@@ -19,15 +19,21 @@ public class lightController : MonoBehaviour
     // Update is called once per frame
     void UpdateLights()
     {
+        // We get the new intensities.
         for (int i = 1; i <= 8; i++)
             newIntensities[i] = UDP.intensities[i];
 
+        // For each of the lights.
         for (int i = 1; i <= 8; i++)
         {
+            // If the new intensity is bigger then the old one by the sensitivity we have set.
             if (newIntensities[i] > intensities[i]+sensitivity)
             {
+                // We increase the light intensity.
                 sl[i].intensity += (newIntensities[i] - intensities[i])/sensitivity;
+                // We increase the number of cycles
                 nrOfCycles++;
+                // If we've had multiple cycles of increased intensity, we need to increase the sensitivity.
                 if (nrOfCycles == 3)
                     sensitivity++;
             }
@@ -35,8 +41,11 @@ public class lightController : MonoBehaviour
             {
                 if (sl[i].intensity > 0)
                 {
+                    // We decrease the intensity.
                     sl[i].intensity--;
+                    // We decrease the number of cycles.
                     nrOfCycles--;
+                    // If we've had multiple decreases, we need to lower the sensitivity.
                     if (nrOfCycles == -3)
                         sensitivity--;
                 }
