@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eisko", "Eisko.csproj", "{57058025-28C4-7900-6180-269613652390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eisko.Editor", "Eisko.Editor.csproj", "{3F809106-3E17-1EF2-C235-B6549118ABCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57058025-28C4-7900-6180-269613652390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57058025-28C4-7900-6180-269613652390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57058025-28C4-7900-6180-269613652390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57058025-28C4-7900-6180-269613652390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F809106-3E17-1EF2-C235-B6549118ABCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F809106-3E17-1EF2-C235-B6549118ABCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F809106-3E17-1EF2-C235-B6549118ABCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F809106-3E17-1EF2-C235-B6549118ABCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
