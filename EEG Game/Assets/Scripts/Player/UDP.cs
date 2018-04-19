@@ -22,10 +22,8 @@ public class UDP : MonoBehaviour
 
     void Start()
     {
-        // This will call the function that Upates the power once every second.
         InvokeRepeating("UpdatePower", 1.0f, 1.0f);
         power = 1;
-        //The switch that selects between HighAlpha or AlphaTheta training.
         alphaThetaSwitch = true;
         alphaThetaToggle.onValueChanged.AddListener(delegate { ToggleValueChanged(alphaThetaToggle); });
         sensitivity = 10;
@@ -35,7 +33,6 @@ public class UDP : MonoBehaviour
         thread.Start();
     }
 
-    // On change listener.
     void ToggleValueChanged(Toggle change)
     {
         Debug.Log("Toggle changed, now is" + alphaThetaToggle.isOn);
@@ -52,8 +49,6 @@ public class UDP : MonoBehaviour
         }
     }
 
-    // Function that updates the power based on the new percentage and sensitivity.
-    // The sensitivity can be change from the menu using the slider.
     void UpdatePower()
     {
         if (newPercentage >= percentage+sensitivity)
@@ -77,9 +72,9 @@ public class UDP : MonoBehaviour
         udpAlphThet.Close();
         running = false;
         KillTheThread();
+        
     }
 
-    // UDP function.
     private void ThreadMethod()
     {
         while (running)
@@ -89,9 +84,9 @@ public class UDP : MonoBehaviour
                 IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 try
                 {
-                    // Waiting to recieve data from UDP.
                     Byte[] receiveBytes = udpAlphThet.Receive(ref RemoteIpEndPoint);
                     newPercentage = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
+                    Debug.Log(percentage);
                     //Done, notify the Update function
                     precessData = true;
                 }
@@ -105,9 +100,9 @@ public class UDP : MonoBehaviour
                 IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 try
                 {
-                    // Waiting to recieve data from UDP.
                     Byte[] receiveBytes = udpHighAlph.Receive(ref RemoteIpEndPoint);
                     newPercentage = Int32.Parse(Encoding.ASCII.GetString(receiveBytes));
+                    Debug.Log(percentage);
                     //Done, notify the Update function
                     precessData = true;
                 }
