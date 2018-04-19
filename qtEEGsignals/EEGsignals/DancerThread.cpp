@@ -18,7 +18,7 @@ DancerThread::DancerThread(const int &receivePort)
 }
 
 
-void DancerThread::processDatagram()
+void DancerThread::processDatagram() /*data logging method needed*/
 {
 	QByteArray buffer;
 	buffer.resize(mUDPconnection->pendingDatagramSize());
@@ -33,7 +33,7 @@ void DancerThread::processDatagram()
 	QString percentageList = getPercentage(dataList);
 
 	qDebug() << "sent value is : " << percentageList;
-	QByteArray data;
+	QByteArray data;	
 	data.append(percentageList);
 	mUDPconnection->writeDatagram(data, mSendAddress, mSendPort.toInt());
 	

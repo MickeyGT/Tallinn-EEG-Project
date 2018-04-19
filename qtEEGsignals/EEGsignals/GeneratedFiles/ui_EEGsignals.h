@@ -26,11 +26,14 @@ class Ui_EEGsignalsClass
 public:
     QWidget *centralWidget;
     QPushButton *button1;
-    QPushButton *button2;
     QPushButton *button3;
+    QPushButton *button2;
     QPushButton *button4;
-    QCustomPlot *CustomPlot;
+    QCustomPlot *EEGAlphaThetaPlot;
     QCustomPlot *EEGAlphaSignalPlot;
+    QCustomPlot *EEGDancerPlot;
+    QPushButton *button6;
+    QPushButton *button5;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -44,22 +47,31 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         button1 = new QPushButton(centralWidget);
         button1->setObjectName(QStringLiteral("button1"));
-        button1->setGeometry(QRect(40, 90, 101, 81));
-        button2 = new QPushButton(centralWidget);
-        button2->setObjectName(QStringLiteral("button2"));
-        button2->setGeometry(QRect(40, 290, 101, 81));
+        button1->setGeometry(QRect(40, 30, 101, 81));
         button3 = new QPushButton(centralWidget);
         button3->setObjectName(QStringLiteral("button3"));
-        button3->setGeometry(QRect(170, 90, 101, 81));
+        button3->setGeometry(QRect(40, 200, 101, 81));
+        button2 = new QPushButton(centralWidget);
+        button2->setObjectName(QStringLiteral("button2"));
+        button2->setGeometry(QRect(180, 30, 101, 81));
         button4 = new QPushButton(centralWidget);
         button4->setObjectName(QStringLiteral("button4"));
-        button4->setGeometry(QRect(160, 290, 101, 81));
-        CustomPlot = new QCustomPlot(centralWidget);
-        CustomPlot->setObjectName(QStringLiteral("CustomPlot"));
-        CustomPlot->setGeometry(QRect(320, 240, 451, 231));
+        button4->setGeometry(QRect(180, 200, 101, 81));
+        EEGAlphaThetaPlot = new QCustomPlot(centralWidget);
+        EEGAlphaThetaPlot->setObjectName(QStringLiteral("EEGAlphaThetaPlot"));
+        EEGAlphaThetaPlot->setGeometry(QRect(320, 170, 451, 141));
         EEGAlphaSignalPlot = new QCustomPlot(centralWidget);
         EEGAlphaSignalPlot->setObjectName(QStringLiteral("EEGAlphaSignalPlot"));
-        EEGAlphaSignalPlot->setGeometry(QRect(320, 0, 451, 231));
+        EEGAlphaSignalPlot->setGeometry(QRect(320, 10, 451, 141));
+        EEGDancerPlot = new QCustomPlot(centralWidget);
+        EEGDancerPlot->setObjectName(QStringLiteral("EEGDancerPlot"));
+        EEGDancerPlot->setGeometry(QRect(320, 330, 451, 141));
+        button6 = new QPushButton(centralWidget);
+        button6->setObjectName(QStringLiteral("button6"));
+        button6->setGeometry(QRect(180, 360, 101, 81));
+        button5 = new QPushButton(centralWidget);
+        button5->setObjectName(QStringLiteral("button5"));
+        button5->setGeometry(QRect(40, 360, 101, 81));
         EEGsignalsClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(EEGsignalsClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -81,9 +93,11 @@ public:
     {
         EEGsignalsClass->setWindowTitle(QApplication::translate("EEGsignalsClass", "EEGsignals", nullptr));
         button1->setText(QApplication::translate("EEGsignalsClass", "RecevingPort", nullptr));
-        button2->setText(QApplication::translate("EEGsignalsClass", "setThetaChannel", nullptr));
-        button3->setText(QApplication::translate("EEGsignalsClass", "Sending Options", nullptr));
-        button4->setText(QApplication::translate("EEGsignalsClass", "PushButton", nullptr));
+        button3->setText(QApplication::translate("EEGsignalsClass", "RecevingPort", nullptr));
+        button2->setText(QApplication::translate("EEGsignalsClass", "Sending Options", nullptr));
+        button4->setText(QApplication::translate("EEGsignalsClass", "Sending Options", nullptr));
+        button6->setText(QApplication::translate("EEGsignalsClass", "Sending Options", nullptr));
+        button5->setText(QApplication::translate("EEGsignalsClass", "ReceivingPort", nullptr));
     } // retranslateUi
 
 };

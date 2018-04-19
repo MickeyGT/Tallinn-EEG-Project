@@ -10,7 +10,7 @@
 
 class DancerThread : public DataReceivingThread
 {
-	#define MINIMUMBORDER - 1000
+	#define MINIMUMBORDER  -1000
 	#define MAXIMUMBORDER	1000
 
 	Q_OBJECT

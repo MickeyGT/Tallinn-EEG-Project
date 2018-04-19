@@ -29,17 +29,20 @@ void AlphaThetaGameThread::processDatagram()
 		updateMinMaxValue(AlphaThetaDivision);
 		QString percentage = getPercentage(AlphaThetaDivision);
 
+		QtCSV::StringData csvData;
+		csvData.addRow(percentage);
+		QtCSV::Writer::write(mFilePath, csvData, ",", "\"", QtCSV::Writer::APPEND);
+
 		QByteArray data;
 
 		data.append(percentage);
 		mUDPconnection->writeDatagram(data, mSendAddress, mSendPort.toInt());
 
-		qDebug() << "sending percentage: " << percentage;
+//		qDebug() << "sending percentage: " << percentage;
 
 		emit(updatePlot(percentage));
 	}
 }
-
 
 
 AlphaThetaGameThread::~AlphaThetaGameThread()
@@ -48,12 +51,6 @@ AlphaThetaGameThread::~AlphaThetaGameThread()
 
 void AlphaThetaGameThread::updateMinMaxValue(const double &value)
 {
-	if (value == INFINITY)
-	{
-		int a;
-		a = 3;
-	}
-
 	if (value > mMaxValue)
 	{
 		mMaxValue = value;

@@ -1,8 +1,7 @@
 #ifndef ALPHATHETAGAMETHREAD_H
 #define ALPHATHETAGAMETHREAD_H
-
-
 #include "DataReceivingThread.h"
+
 class AlphaThetaGameThread : public DataReceivingThread
 {
 public:

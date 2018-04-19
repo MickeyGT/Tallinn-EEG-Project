@@ -1,6 +1,6 @@
 #include "AlphaThetaSignalDecoder.h"
 #include <QPair>
-
+#include <QDebug>
 
 AlphaThetaSignalDecoder::AlphaThetaSignalDecoder()
 {
@@ -16,6 +16,8 @@ QPair<double , double> AlphaThetaSignalDecoder::decodeSignal(const QByteArray &d
 	QByteArray auxByteArray(datagram);
 	QByteArray byte1 = auxByteArray.mid(0, 8);
 	QByteArray byte2 = auxByteArray.mid(8, 8);
+
+//	qDebug() << datagram;
 
 	double alpha;
 	QDataStream firstSignal(&byte1, QIODevice::ReadOnly);

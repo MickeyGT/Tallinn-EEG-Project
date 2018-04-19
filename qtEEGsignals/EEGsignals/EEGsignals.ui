@@ -18,7 +18,20 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>90</y>
+      <y>30</y>
+      <width>101</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>RecevingPort</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>200</y>
       <width>101</width>
       <height>81</height>
      </rect>
@@ -30,21 +43,8 @@
    <widget class="QPushButton" name="button2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>290</y>
-      <width>101</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>setThetaChannel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button3">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>90</y>
+      <x>180</x>
+      <y>30</y>
       <width>101</width>
       <height>81</height>
      </rect>
@@ -56,23 +56,23 @@
    <widget class="QPushButton" name="button4">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>290</y>
+      <x>180</x>
+      <y>200</y>
       <width>101</width>
       <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Sending Options</string>
     </property>
    </widget>
-   <widget class="QCustomPlot" name="CustomPlot" native="true">
+   <widget class="QCustomPlot" name="EEGAlphaThetaPlot" native="true">
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>240</y>
+      <y>170</y>
       <width>451</width>
-      <height>231</height>
+      <height>141</height>
      </rect>
     </property>
    </widget>
@@ -80,10 +80,46 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>0</y>
+      <y>10</y>
       <width>451</width>
-      <height>231</height>
+      <height>141</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QCustomPlot" name="EEGDancerPlot" native="true">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>330</y>
+      <width>451</width>
+      <height>141</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button6">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>360</y>
+      <width>101</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sending Options</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button5">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>360</y>
+      <width>101</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ReceivingPort</string>
     </property>
    </widget>
   </widget>

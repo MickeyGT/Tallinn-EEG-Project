@@ -66,6 +66,12 @@
     <ClCompile Include="AlphaThetaGameThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MuseThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MuseSignalDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="EEGsignals.h">
@@ -111,6 +117,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AlphaThetaGameThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MuseThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MuseSignalDecoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

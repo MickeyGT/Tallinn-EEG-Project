@@ -1,9 +1,9 @@
 #ifndef ALPHASIGNALDECODER_H
 #define ALPHASIGNALDECODER_H
-
 #include <QDebug>
 #include <QDataStream>
 #include <QList>
+
 class AlphaSignalDecoder
 {
 public:

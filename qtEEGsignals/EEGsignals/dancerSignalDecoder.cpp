@@ -9,6 +9,7 @@ DancerSignalDecoder::~DancerSignalDecoder()
 {
 }
 
+
 QList<QVariant> DancerSignalDecoder::decodeSignal(const QByteArray &datagram)
 {
 //	qDebug() << datagram.toHex();

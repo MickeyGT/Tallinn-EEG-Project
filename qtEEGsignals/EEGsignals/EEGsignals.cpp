@@ -9,30 +9,27 @@ EEGsignals::EEGsignals(QWidget *parent) :
 {
 	ui.setupUi(this);
 	
+	connect(ui.button1, SIGNAL(pressed()), this, SLOT(changeAlphaSignalRecevingPort()));
+	connect(ui.button2, SIGNAL(pressed()), this, SLOT(changeAlphaSignalSendingValues()));
 
-	connect(ui.button3, SIGNAL(pressed()), this, SLOT(changeDancerSignalSendingValues()));
-//	connect(ui.button4, SIGNAL(pressed()), this, SLOT(changeSkinConductorSignalPort()));
+	connect(ui.button3, SIGNAL(pressed()), this, SLOT(changeAlphaThetaSignalRecevingPort()));
+	connect(ui.button4, SIGNAL(pressed()), this, SLOT(changeAlphaThetaSignalSendingValues()));
 
-	connect(ui.button1, SIGNAL(pressed()), this, SLOT(changeDancerSignalRecevingPort()));
-//	connect(ui.button2, SIGNAL(pressed()), this, SLOT(beginSkinConductorSignalTransmission()));
+	connect(ui.button5, SIGNAL(pressed()), this, SLOT(changeDancerSignalRecevingPort()));
+	connect(ui.button6, SIGNAL(pressed()), this, SLOT(changeDancerSignalSendingValues()));
 
 	setUpRealTimePlot(ui.EEGAlphaSignalPlot);
-	setUpRealTimePlot(ui.CustomPlot);
+	setUpRealTimePlot(ui.EEGAlphaThetaPlot);
+	setUpRealTimePlot(ui.EEGDancerPlot);
 
-//	mDancerThread = new DancerThread(12345);
+	mDancerThread = new DancerThread(12345);
 	mGameThread = new GameThread(25000);
-	mAlphaThetaThread = new AlphaThetaGameThread(26000);
+	mAlphaThetaThread = new AlphaThetaGameThread(28000);
+//	mMuseThread = new MuseThread(28000);
 
 	connect(mGameThread, SIGNAL(updatePlot(QString)), this, SLOT(alphaSignalPlot(QString)));
 	connect(mAlphaThetaThread, SIGNAL(updatePlot(QString)), this, SLOT(alphaThetaSignalPlot(QString)));
-}
-
-void EEGsignals::changeDancerSignalSendingValues()
-{
-	customMultipleInputsDialog *dial = new customMultipleInputsDialog;
-	QString ip = dial->getIp();
-	QString port = dial->getPort();
-	mDancerThread->setSendAddressAndPort(ip, port);
+	connect(mDancerThread, SIGNAL(updatePlot(QString)), this, SLOT(dancerPlot(QString)));
 }
 
 void EEGsignals::changeDancerSignalRecevingPort()
@@ -43,6 +40,49 @@ void EEGsignals::changeDancerSignalRecevingPort()
 	if (ok)
 		mDancerThread->changeRecevingPort(port);
 }
+
+void EEGsignals::changeDancerSignalSendingValues()
+{
+	customMultipleInputsDialog *dial = new customMultipleInputsDialog;
+	QString ip = dial->getIp();
+	QString port = dial->getPort();
+	mDancerThread->setSendAddressAndPort(ip, port);
+}
+
+void EEGsignals::changeAlphaSignalRecevingPort()
+{
+	bool ok;
+	int port = QInputDialog::getInt(this, tr("QInputDialog::getInteger()"),
+		tr("Port:"), 0, 0, 3000000, 1, &ok);
+	if (ok)
+		mGameThread->changeRecevingPort(port);
+}
+
+void EEGsignals::changeAlphaSignalSendingValues()
+{
+	customMultipleInputsDialog *dial = new customMultipleInputsDialog;
+	QString ip = dial->getIp();
+	QString port = dial->getPort();
+	mGameThread->setSendAddressAndPort(ip, port);
+}
+
+void EEGsignals::changeAlphaThetaSignalRecevingPort()
+{
+	bool ok;
+	int port = QInputDialog::getInt(this, tr("QInputDialog::getInteger()"),
+		tr("Port:"), 0, 0, 3000000, 1, &ok);
+	if (ok)
+		mAlphaThetaThread->changeRecevingPort(port);
+}
+
+void EEGsignals::changeAlphaThetaSignalSendingValues()
+{
+	customMultipleInputsDialog *dial = new customMultipleInputsDialog;
+	QString ip = dial->getIp();
+	QString port = dial->getPort();
+	mAlphaThetaThread->setSendAddressAndPort(ip, port);
+}
+
 
 void EEGsignals::setUpRealTimePlot(QCustomPlot *widget)
 {
@@ -98,11 +138,29 @@ void EEGsignals::alphaThetaSignalPlot(const QString &value)
 
 	if (key - lastPointKey > 0.002)
 	{
-		ui.CustomPlot->graph(0)->addData(key, value.toDouble());
+		ui.EEGAlphaThetaPlot->graph(0)->addData(key, value.toDouble());
 		lastPointKey = key;
 	}
 
-	ui.CustomPlot->graph(0)->rescaleValueAxis();
-	ui.CustomPlot->xAxis->setRange(key, 8, Qt::AlignRight);
-	ui.CustomPlot->replot();
+	ui.EEGAlphaThetaPlot->graph(0)->rescaleValueAxis();
+	ui.EEGAlphaThetaPlot->xAxis->setRange(key, 8, Qt::AlignRight);
+	ui.EEGAlphaThetaPlot->replot();
+}
+
+
+void EEGsignals::dancerPlot(const QString &value)
+{
+	static QTime time(QTime::currentTime());
+	double key = time.elapsed() / 1000.0;
+	static double lastPointKey = 0;
+
+	if (key - lastPointKey > 0.002)
+	{
+		ui.EEGDancerPlot->graph(0)->addData(key, value.toDouble());
+		lastPointKey = key;
+	}
+
+	ui.EEGDancerPlot->graph(0)->rescaleValueAxis();
+	ui.EEGDancerPlot->xAxis->setRange(key, 8, Qt::AlignRight);
+	ui.EEGDancerPlot->replot();
 }

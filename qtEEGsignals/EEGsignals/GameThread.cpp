@@ -9,11 +9,6 @@ GameThread::GameThread(const int &receivePort)
 	mMinValue = 10000;
 	mMaxValue = -10000;
 	mFilePath += "/GameDataLogs.csv";
-
-	/*QtCSV::StringData csvData;
-	csvData.addRow("asdf");
-	for (int i = 0; i < 5; i++)
-		QtCSV::Writer::write(mFilePath, csvData ,"," ,"\"" ,QtCSV::Writer::APPEND);*/
 }
 
 
@@ -25,18 +20,24 @@ GameThread::~GameThread()
 void GameThread::processDatagram()
 {
 	QByteArray buffer;
+	AlphaSignalDecoder decoder;
+	QtCSV::StringData csvData;
+	QByteArray data;
+	QString percentage;
+	double value;
+
 	buffer.resize(mUDPconnection->pendingDatagramSize());
 
 	mUDPconnection->readDatagram(buffer.data(), buffer.size());
-
-	AlphaSignalDecoder decoder;
-	double value = decoder.decodeSignal(buffer);
+	
+	value = decoder.decodeSignal(buffer);
 
 	updateMinMaxValue(value);
-	QString percentage = getPercentage(value);
-
-	QByteArray data;
+	percentage = getPercentage(value);
 	
+	csvData.addRow(percentage);
+	QtCSV::Writer::write(mFilePath, csvData, ",", "\"", QtCSV::Writer::APPEND);
+
 	data.append(percentage);
 	mUDPconnection->writeDatagram(data, mSendAddress, mSendPort.toInt());
 
