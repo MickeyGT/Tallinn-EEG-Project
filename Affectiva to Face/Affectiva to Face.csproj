@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7A396EF-1FFA-8B44-3A94-035CCFE985AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityVersion>5.5.4p4</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_4;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VIDEO;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_4;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VIDEO;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PlaymodeTestsRunner">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Affdex\Examples\Scripts\Listener.cs" />
+    <Compile Include="Assets\Affdex\Examples\Scripts\ViewCam.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\AffdexUnityUtils.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\AndroidNativePlatform.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\CameraInput.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\DebugFeatureViewer.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\Detector.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\Expressions.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\Face.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\Frame.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\ImageResultsListener.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\NativePlatform.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\OSXNativePlatform.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\VideoFileInput.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\WindowsNativePlatform.cs" />
+    <Compile Include="Assets\Affdex\Plugins\Scripts\iOSNativePlatform.cs" />
+    <Compile Include="Assets\AffectivaProcess.cs" />
+    <Compile Include="Assets\DrawPoints.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUI.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUIForCanvas.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUIOpacityOverrideForCanvas.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\CloudPointVisualizer.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example01\PrintGazePosition.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example01\ShowNoGazeDetection.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example02\ChangeColor.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example02\ReactOnUserInput.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example03\EyeTrackerSettingsMenu.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example04-FirstPerson\ExtendedViewFirstPerson.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example04-FirstPerson\GunFirstPerson.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example05-ThirdPerson\ExtendedViewThirdPerson.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example05-ThirdPerson\GunThirdPerson.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example06-Strategy\MapNavigation.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example06-Strategy\MapNavigationBase.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example06-Strategy\MouseNavigation.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\Example07-Simulation\ExtendedViewSimple.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\ExtendedViewBase.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\FogOnPresenceLost.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\GazePlotter.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\HeadMovement.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\InteractAtGazeWithCrosshairOverride.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\MarkAtGaze.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\CursorLocker.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\FollowTransform.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\Gun.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\InputManager.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\InteractableGazeAware.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\LaserSight.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\LoadScene.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\ProgressButton.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\QuitApplication.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\SceneContent.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\SceneContentController.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\SceneProgress.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\SetBackground.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\SetCarCycleOffset.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\SimpleMoveController.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\TargetDummy.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\ToggleCodeExample.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\NotEyeTrackingReleated\Wireframe.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\RobotFaceControl.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Scripts\WeaponController.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Highlight\HighlightsPostEffect.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\Displace.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\GerstnerDisplace.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\MeshContainer.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\SpecularLighting.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\Water.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\WaterBase.cs" />
+    <Compile Include="Assets\Tobii\DemoScenes\Shaders\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\Tobii\Framework\DisplayInfo.cs" />
+    <Compile Include="Assets\Tobii\Framework\GazeAware.cs" />
+    <Compile Include="Assets\Tobii\Framework\GazePoint.cs" />
+    <Compile Include="Assets\Tobii\Framework\HeadPose.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\DataProviderBase.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\DataProviderStub.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\FocusedObject.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\GameViewInfo.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\GazeFocus.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\GazeFocusSettings.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\GazeFocusStub.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\GazePointDataProvider.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\HeadPoseDataProvider.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\HitTestFromPoint.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IDataProvider.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IGazeFocus.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IGazeFocusInternal.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IGazeFocusable.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IRegisterGazeFocusable.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IScorer.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\IStateValue.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\ITimestamped.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\ITobiiHost.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\Interop.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\MultiRaycastHistoricHitScore.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\ScoredObject.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\ScreenHelpers.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\SingleRaycastHistoricHitScore.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\SingleRaycastNoScore.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\StateValue.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\StateValueStub.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\TobiiEulaFile.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\TobiiHost.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\TobiiHostStub.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\Win32Helpers.cs" />
+    <Compile Include="Assets\Tobii\Framework\Internal\WindowHelpers.cs" />
+    <Compile Include="Assets\Tobii\Framework\TobiiAPI.cs" />
+    <Compile Include="Assets\Tobii\Framework\UserPresence.cs" />
+    <Compile Include="Assets\Tobii\Plugins\SimpleJSON.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\StreamingAssets\affdex-data-3\README.txt" />
+    <None Include="Assets\StreamingAssets\affdex-data-3\fileList.txt" />
+    <None Include="Assets\StreamingAssets\affdex-data-3\haarcascade\004_lbp_15stage.xml" />
+    <None Include="Assets\StreamingAssets\affdex-data-3\haarcascade\haarcascade_frontalface_alt2.xml" />
+    <None Include="Assets\StreamingAssets\affdex-data-ios\haarcascade\004_lbp_15stage.xml" />
+    <None Include="Assets\StreamingAssets\affdex-data-ios\haarcascade\haarcascade_frontalface_alt2.xml" />
+    <None Include="Assets\StreamingAssets\affdex-data-osx\haarcascade\004_lbp_15stage.xml" />
+    <None Include="Assets\StreamingAssets\affdex-data-osx\haarcascade\haarcascade_frontalface_alt2.xml" />
+    <None Include="Assets\Tobii\DemoScenes\Fonts\LICENSE.txt" />
+    <None Include="Assets\Tobii\DemoScenes\Readme-DemoSceneSetup.txt" />
+    <None Include="Assets\Tobii\DemoScenes\Shaders\Highlight\Highlight.shader" />
+    <None Include="Assets\Tobii\DemoScenes\Shaders\Highlight\MobileBlur.shader" />
+    <None Include="Assets\Tobii\DemoScenes\Shaders\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\Tobii\Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>
