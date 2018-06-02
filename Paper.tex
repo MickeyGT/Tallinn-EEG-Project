@@ -1,0 +1,114 @@
+
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{cite}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\begin{document}
+%
+\title{Peak Alpha based neurofeedback for survival shooter game (working title)}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
+Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
+Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+%
+\authorrunning{F. Author et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Princeton University, Princeton NJ 08544, USA \and
+Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
+\email{lncs@springer.com}\\
+\url{http://www.springer.com/gp/computer-science/lncs} \and
+ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
+\email{\{abc,lncs\}@uni-heidelberg.de}}
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+The abstract should briefly summarize the contents of the paper in
+15--250 words.
+
+\keywords{First keyword  \and Second keyword \and Another keyword.}
+\end{abstract}
+%
+%
+%
+\section{Introduction}
+
+General context, general literature review
+
+What is known: other examples
+
+What is unknown: research issue
+
+Outline of proposed approach and results
+
+Structure of the paper
+
+
+\section{Related Work}
+\subsection{ Neurofeedback training for peak alpha }
+Example citation:
+\cite{hsueh2016neurofeedback}
+\cite{gruzelier2014eeg}
+\cite{kosunen2016relaworld}
+\cite{kober2015specific} 
+\cite{jurewicz2018eeg}
+\cite{pacheco2016neurofeedback}
+\cite{ghasemian2016effect}
+\cite{marzbani2016neurofeedback}
+\cite{zhigalov2016modulation}
+\cite{lackner2016eeg}
+\cite{escolano2014controlled}
+\cite{davelaar2017mechanisms}
+\cite{bazanova2018efficiency}
+\cite{mierau2016interrelation}
+\cite{arns2015neurofeedback}
+
+\subsection{ Biofeedback games}
+\subsection{ third related topic}
+
+\section{Proposed Design: Peak Alpha Survival Shooter}
+
+\begin{figure}[htbp!]
+  \caption{Figure that outlines the proposed detailed presentation of the key steps}
+  \includegraphics{Figure}
+\end{figure}
+
+The goal of this project was to create a different neurofeedback training tool compared to the ones that exist already. We wanted to make something that is interactive, fun and that could be used to train anyone. Previous studies have shown that different neurofeedback training methods can be used to achieve positive results on healthy people, people that have suffered chronic strokes or people with Attention Deficit/Hyperactivity Disorder (ADHD). For the regular healthy subjects, neurofeedback training methods have shown to improve certain cognitive abilities. For people that are post-stroke victims, neurofeedback training has helped with short and long term verbal memory and also working memory. Neurofeedback training has shown bigger improvements in post-stroke victims compared to traditional cognitive training methods. For the subjects with ADHD whose neurofeedback training sessions decreased the subject's theta brainwave activity, that showed a significant increase in T.O.V.A. performance and WISC-R scores.
+In the figure above we've showcased the key steps of the neurofeedback process that we've done for our training game. We're now going to talk about how we achieved each one of those steps and the reasoning and thought process behind each one.
+\subsection{ Retrieving EEG Signals from the Nautilus Headset}
+For retrieving the raw EEG data from the Nautilus Headset, we've used Matlab and Simulink to create a script that used g.tec's Simulink library to acquire the signals from the headset. For our game, we're going to use High Alpha training or Alpha/Theta training so we're selecting the Alpha and Theta signals. We're going to send via UDP two different packets. One that will contain the high alpha signals that we select from the alpha signals and one that contains all the alpha and theta signals. Those will be further processed in C++ so they can be logged, displayed , processed and sent to other applications that require them.
+\subsection{ Processing and displaying the data using QT5}
+The signals sent from Simulink via UDP connection are received and processed in a desktop c++ application which uses qt framework and a few other external libraries such as qcustomplot for displaying the dynamic signal graph and qtcsv for writing data in a csv file to be analyzed later. The two possible game modes (High Alpha and Alpha/Theta) are showcased in real time and the data is received through 2 different UDP ports. The interpretation of the signals is done as such: the byte array sent by Simulink is transformed into a decimal number , the smallest and biggest value since the program has started are stored and updated accordingly after a datagram containing a value is decoded, if a value is not the smallest nor the biggest then it is compared to those values and a percentage is calculated , this percentage is displayed , stored in a csv file and forwarded to Unity. The software has the capability of changing the UDP port and ip address the data is coming from and the UDP port the processed data is sent to in order to facilitate portability and flexibility.
+\subsection{ Game scripts that modify the player's attributes}
+The Unity game receives the UDP datagrams from the QT5 C++ processing center using C\# scripts. After that, the new percentage get compared to the previous percentage and then we change the power based on the difference between those two and the current sensitivity. If the current power percentage is smaller then the previous one and the power is bigger than 0, we decrease the power by 1. This process is repeated once every second. We also update the intensity of the light and the halo surrounding the player's character based on the new value for the player's power. If the intensity of the light surrounding the player is bigger than 50, we enable the halo. If it goes below 50, we disable it. The light and halo have been added to the game to provide the player with visual feedback of their current neurofeedback training status and progress.
+\subsection{The Survival Shooter Game}
+The Survival Shooter Game is based on a tutorial project offered by Unity that we modified a bit so we can add the neurofeedback training module. The game is an isometric 3d survival shooter where the player's character has to constantly fight enemies that spawn around the map. For every enemy that is killed, the player gets points. The goal of the game is to survive and get as many points as possible. The player has a health bar and if an enemy comes close to him, the enemy can deal damage to the player. When the player's health reaches 0, the game ends. There are several types of enemies, each with a different health amount. The player is equiped with a weapon with which he can shoot at the spawned enemies. The damage the gun does is influenced by the power the player has at that point. The power acts as a multiplier to the player's damage. The power is linked to the neurofeedback training. An increase in power is correlated to an increase in the concentration required for the neurofeedback training.
+
+\section{Discussion}
+
+Outline of context and main results
+
+Key future works
+
+\bibliographystyle{splncs04}
+\bibliography{mybibliography}
+
+\end{document}
