@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'BitalinoDevice.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.11.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -9,10 +9,11 @@
 #include "../../BitalinoDevice.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QVector>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'BitalinoDevice.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.3. It"
+#error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -22,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_BitalinoDevice_t {
     QByteArrayData data[7];
-    char stringdata0[73];
+    char stringdata0[71];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,16 +33,16 @@ struct qt_meta_stringdata_BitalinoDevice_t {
 static const qt_meta_stringdata_BitalinoDevice_t qt_meta_stringdata_BitalinoDevice = {
     {
 QT_MOC_LITERAL(0, 0, 14), // "BitalinoDevice"
-QT_MOC_LITERAL(1, 15, 20), // "sendPercentageToGame"
-QT_MOC_LITERAL(2, 36, 0), // ""
-QT_MOC_LITERAL(3, 37, 10), // "percentage"
-QT_MOC_LITERAL(4, 48, 10), // "updatePlot"
-QT_MOC_LITERAL(5, 59, 5), // "value"
-QT_MOC_LITERAL(6, 65, 7) // "process"
+QT_MOC_LITERAL(1, 15, 16), // "timeDomainValues"
+QT_MOC_LITERAL(2, 32, 0), // ""
+QT_MOC_LITERAL(3, 33, 12), // "QVector<int>"
+QT_MOC_LITERAL(4, 46, 10), // "updatePlot"
+QT_MOC_LITERAL(5, 57, 5), // "value"
+QT_MOC_LITERAL(6, 63, 7) // "process"
 
     },
-    "BitalinoDevice\0sendPercentageToGame\0"
-    "\0percentage\0updatePlot\0value\0process"
+    "BitalinoDevice\0timeDomainValues\0\0"
+    "QVector<int>\0updatePlot\0value\0process"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,7 +67,7 @@ static const uint qt_meta_data_BitalinoDevice[] = {
        6,    0,   35,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, 0x80000000 | 3,    2,
     QMetaType::Void, QMetaType::Double,    5,
 
  // slots: parameters
@@ -81,22 +82,33 @@ void BitalinoDevice::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         BitalinoDevice *_t = static_cast<BitalinoDevice *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->sendPercentageToGame((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 0: _t->timeDomainValues((*reinterpret_cast< const QVector<int>(*)>(_a[1]))); break;
         case 1: _t->updatePlot((*reinterpret_cast< const double(*)>(_a[1]))); break;
         case 2: _t->process(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QVector<int> >(); break;
+            }
+            break;
+        }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (BitalinoDevice::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitalinoDevice::sendPercentageToGame)) {
+            using _t = void (BitalinoDevice::*)(const QVector<int> & );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitalinoDevice::timeDomainValues)) {
                 *result = 0;
                 return;
             }
         }
         {
-            typedef void (BitalinoDevice::*_t)(const double & );
+            using _t = void (BitalinoDevice::*)(const double & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BitalinoDevice::updatePlot)) {
                 *result = 1;
                 return;
@@ -105,7 +117,7 @@ void BitalinoDevice::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     }
 }
 
-const QMetaObject BitalinoDevice::staticMetaObject = {
+QT_INIT_METAOBJECT const QMetaObject BitalinoDevice::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_BitalinoDevice.data,
       qt_meta_data_BitalinoDevice,  qt_static_metacall, nullptr, nullptr}
 };
@@ -135,14 +147,14 @@ int BitalinoDevice::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 3)
-            *reinterpret_cast<int*>(_a[0]) = -1;
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 3;
     }
     return _id;
 }
 
 // SIGNAL 0
-void BitalinoDevice::sendPercentageToGame(const QString & _t1)
+void BitalinoDevice::timeDomainValues(const QVector<int> & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

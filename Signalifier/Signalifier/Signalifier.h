@@ -2,10 +2,9 @@
 #define SIGNALIFIER_H
 
 #include <QtWidgets/QMainWindow>
-#include <QUdpsocket>
-
 
 #include "BitalinoDeviceManager.h"
+#include "ShooterGameConnection.h"
 #include "ui_Signalifier.h"
 
 
@@ -24,11 +23,11 @@ private:
 private slots:
 	void updateBitalinoDevice1Plot(const double& value);
 	void updateBitalinoDevice2Plot(const double& value);
-	void sendPercentageToGame(const QString& percentage);
+	void sendPercentageToGame(const QVector<int>& percentage);
 
 private:
-	QUdpSocket *_udpConnection;
-	QHostAddress _address;
+	ShooterGameConnection* _gameConnection;
+	
 	Ui::SignalifierClass	_ui;
 };
 

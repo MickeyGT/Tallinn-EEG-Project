@@ -48,6 +48,12 @@
     <ClCompile Include="BitalinoDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FftFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShooterGameConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Signalifier.h">
@@ -57,6 +63,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="BitalinoDevice.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ShooterGameConnection.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FftFactory.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

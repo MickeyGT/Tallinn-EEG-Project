@@ -317,5 +317,4 @@ private:
    bool     isTTY;
 #endif
 };
-
 #endif // _BITALINOHEADER_

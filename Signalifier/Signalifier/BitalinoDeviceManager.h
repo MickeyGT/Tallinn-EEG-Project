@@ -2,7 +2,7 @@
 #define BITALINODEVICEMANAGER_H
 
 #include "BitalinoDevice.h"
-
+#include "FftFactory.h"
 
 class BitalinoDeviceManager
 {

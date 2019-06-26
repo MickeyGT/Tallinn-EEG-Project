@@ -5,6 +5,7 @@
 #include <vector>
 #include "bitalino.h"
 
+
 // Wrapper class around BITalino.h
 class BitalinoDevice : public QObject
 {
@@ -21,17 +22,16 @@ public slots:
 	void process();
 
 signals:
-	void sendPercentageToGame(const QString& percentage);
+	void timeDomainValues(const QVector<int>&);
 	void updatePlot(const double& value);
 
 private:
-	QString getPercentage(const double& value);
-	void	updateMinMaxValues(const double& value);
+
+	void	analogValuesFromVFrame(const BITalino::VFrame& in, QVector<int>& out);
 private:
 	BITalino	_device;
 	QString		_name;    // Name of a Bluetooth device
-	double		_minValue = 10000;
-	double		_maxValue = -10000;
+
 };
 
 using BitalinoDeviceListPtr = std::vector<BitalinoDevice*>;

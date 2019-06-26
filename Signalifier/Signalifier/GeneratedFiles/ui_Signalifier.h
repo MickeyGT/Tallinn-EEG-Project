@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Signalifier.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.3
+** Created by: Qt User Interface Compiler version 5.11.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,10 +10,7 @@
 #define UI_SIGNALIFIER_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -82,11 +79,11 @@ public:
 
     void retranslateUi(QMainWindow *SignalifierClass)
     {
-        SignalifierClass->setWindowTitle(QApplication::translate("SignalifierClass", "Signalifier", Q_NULLPTR));
-        button2->setText(QApplication::translate("SignalifierClass", "Sending Options", Q_NULLPTR));
-        button3->setText(QApplication::translate("SignalifierClass", "RecevingPort", Q_NULLPTR));
-        button1->setText(QApplication::translate("SignalifierClass", "RecevingPort", Q_NULLPTR));
-        button4->setText(QApplication::translate("SignalifierClass", "Sending Options", Q_NULLPTR));
+        SignalifierClass->setWindowTitle(QApplication::translate("SignalifierClass", "Signalifier", nullptr));
+        button2->setText(QApplication::translate("SignalifierClass", "Sending Options", nullptr));
+        button3->setText(QApplication::translate("SignalifierClass", "RecevingPort", nullptr));
+        button1->setText(QApplication::translate("SignalifierClass", "RecevingPort", nullptr));
+        button4->setText(QApplication::translate("SignalifierClass", "Sending Options", nullptr));
     } // retranslateUi
 
 };
