@@ -20,6 +20,11 @@ QString BitalinoDevice::name()
 	return _name;
 }
 
+void BitalinoDevice::setFftMap(BitalinoFftMap* map)
+{
+	_fftMap = map;
+}
+
 void BitalinoDevice::process()
 {
 	_device.start(1000, { 0 });   // start acquisition of channel 0 at 1000 Hz
@@ -36,9 +41,12 @@ void BitalinoDevice::process()
 		analogValuesFromVFrame(frames, analogValues);
 
 		emit updatePlot(f.analog[0]);
-		emit timeDomainValues(analogValues);
 
-	//	qDebug() << f.analog[0];
+		if (!_fftMap->isFftScriptRunning())
+		{
+			emit timeDomainValues(analogValues);
+			_fftMap->setIsFftFactoryRunningFlag(true);
+		}
 
 	} while (1);
 }

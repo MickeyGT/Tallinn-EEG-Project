@@ -4,7 +4,7 @@
 #include <QThread>
 #include <vector>
 #include "bitalino.h"
-
+#include "BitalinoFftMap.h"
 
 // Wrapper class around BITalino.h
 class BitalinoDevice : public QObject
@@ -18,6 +18,8 @@ public:
 
 	QString name();
 
+	void setFftMap(BitalinoFftMap* map);
+
 public slots:
 	void process();
 
@@ -26,12 +28,12 @@ signals:
 	void updatePlot(const double& value);
 
 private:
-
 	void	analogValuesFromVFrame(const BITalino::VFrame& in, QVector<int>& out);
-private:
-	BITalino	_device;
-	QString		_name;    // Name of a Bluetooth device
 
+private:
+	BitalinoFftMap*	_fftMap;
+	BITalino		_device;
+	QString			_name;    // Name of a Bluetooth device
 };
 
 using BitalinoDeviceListPtr = std::vector<BitalinoDevice*>;

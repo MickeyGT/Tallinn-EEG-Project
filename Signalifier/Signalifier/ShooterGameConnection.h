@@ -4,6 +4,8 @@
 #include <QThread>
 #include <QUdpsocket>
 
+#define MIN_SIGNAL_VALUE_INIT 10000;
+#define MAX_SIGNAL_VALUE_INIT -10000;
 
 class ShooterGameConnection : public QObject
 {
@@ -15,6 +17,10 @@ public:
 public slots:
 	void processTimeDomainValues(const QVector<int>&);
 	void processFftValues(const QPair<double, double>&);
+	void notifyBitalinoFftMap(const bool&);
+
+signals:
+	void updateBitalinoDeviceFftFlag(const bool&);
 
 private:
 	QString getPercentage(const double& value);
@@ -23,8 +29,8 @@ private:
 private:
 	QUdpSocket*		_udpConnection;
 	QHostAddress	_address;
-	double			_minValue = 10000;
-	double			_maxValue = -10000;
+	double			_minValue = MIN_SIGNAL_VALUE_INIT;
+	double			_maxValue = MAX_SIGNAL_VALUE_INIT;
 };
 
 #endif

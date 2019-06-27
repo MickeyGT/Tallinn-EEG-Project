@@ -26,7 +26,7 @@ public class UDP : MonoBehaviour
         InvokeRepeating("UpdatePower", 1.0f, 1.0f);
         power = 1;
         //The switch that selects between HighAlpha or AlphaTheta training.
-        alphaThetaSwitch = true;
+        alphaThetaSwitch = false;
         alphaThetaToggle.onValueChanged.AddListener(delegate { ToggleValueChanged(alphaThetaToggle); });
         sensitivity = 10;
         udpHighAlph = new UdpClient(25000);

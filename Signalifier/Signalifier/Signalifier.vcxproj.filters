@@ -54,6 +54,9 @@
     <ClCompile Include="ShooterGameConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BitalinoFftMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Signalifier.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FftFactory.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="BitalinoFftMap.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

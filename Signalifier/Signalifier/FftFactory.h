@@ -17,6 +17,7 @@ public:
 
 	signals:
 		void sendResult(const QPair<double, double>&);
+		void isFftFactoryRunning(const bool&);
 
 private:
 	QPair<double, double> parsePythonScriptResponse(const QString& response);

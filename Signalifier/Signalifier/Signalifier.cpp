@@ -1,7 +1,7 @@
 #include "Signalifier.h"
 #include <QProcess>
 #include "FftFactory.h"
-
+#include "BitalinoFftMap.h"
 
 Signalifier::Signalifier(QWidget *parent)
 	: QMainWindow(parent)
@@ -9,31 +9,6 @@ Signalifier::Signalifier(QWidget *parent)
 	_ui.setupUi(this);
 
 	setUpRealTimePlot(_ui.bitalinoDevice1);
-
-	/*QStringList args;
-	args << "E:/Tallinn-EEG-Project/Signalifier/FFT-computor/testFile.py"
-		<< "123"
-		<< "asdf";*/
-
-	/////*QProcess process;
-	////process.setProcessChannelMode(QProcess::MergedChannels);
-	////process.start("E:\\Tallinn-EEG-Project\\Signalifier\\FFT-computor\\dist\\testFile.exe", QStringList() << "asd" << "123" );
-	////process.waitForReadyRead();
-	////qDebug() << QString(process.readAllStandardOutput());*/
-
-
-
-
-	/*QProcess process;
-	process.setProcessChannelMode(QProcess::MergedChannels);
-	QString exe = "E:\Tallinn-EEG-Project\Signalifier\FFT-computor\dist\asdf\asdf.exe";
-	process.execute(exe);
-	process.waitForFinished();
-	QByteArray output = process.readAllStandardOutput();
-	std::string value = output.toStdString();
-	QString aaaa = QString::fromStdString(value);
-
-	qDebug() << aaaa << endl;*/
 
 	_gameConnection = new ShooterGameConnection();
 
@@ -43,6 +18,8 @@ Signalifier::Signalifier(QWidget *parent)
 	connectBitalinoToGame();
 
 	BitalinoDeviceManager::Instance().startDevices();
+
+
 }
 
 void Signalifier::setUpRealTimePlot(QCustomPlot *widget)
@@ -76,16 +53,22 @@ void Signalifier::setUpRealTimePlot(QCustomPlot *widget)
 void Signalifier::connectBitalinoToPlot()
 {
 	BitalinoDeviceListPtr deviceList = BitalinoDeviceManager::Instance().deviceList();
-
 	QObject::connect(deviceList[0], SIGNAL(updatePlot(double)), this, SLOT(updateBitalinoDevice1Plot(double)));
 //	QObject::connect(deviceList[1], SIGNAL(dataReceived(int)), this, SLOT(updateBitalinoDevice2Plot(double)));
+//	TO DO : 2nd device connection
 }
 
 void Signalifier::connectBitalinoToGame()
 {
 	BitalinoDeviceListPtr deviceList = BitalinoDeviceManager::Instance().deviceList();
-	QObject::connect(deviceList[0], SIGNAL(timeDomainValues(const QVector<int>&)), _gameConnection, SLOT(processTimeDomainValues(const QVector<int>&)));
 
+	BitalinoDevice* device1 = deviceList[0];
+	BitalinoFftMap* fftMap = new BitalinoFftMap(device1->name());
+	device1->setFftMap(fftMap);
+
+	QObject::connect(device1, SIGNAL(timeDomainValues(const QVector<int>&)), _gameConnection, SLOT(processTimeDomainValues(const QVector<int>&)));
+
+	QObject::connect(_gameConnection, SIGNAL(updateBitalinoDeviceFftFlag(const bool&)), fftMap, SLOT(setIsFftFactoryRunningFlag(const bool&)));
 }
 
 void Signalifier::updateBitalinoDevice1Plot(const double& value)
@@ -120,16 +103,4 @@ void Signalifier::updateBitalinoDevice2Plot(const double& value)
 	_ui.bitalinoDevice2->graph(0)->rescaleValueAxis();
 	_ui.bitalinoDevice2->xAxis->setRange(key, 8, Qt::AlignRight);
 	_ui.bitalinoDevice2->replot();
-}
-
-void Signalifier::sendPercentageToGame(const QVector<int>& value)
-{
-//	BITalino::VFrame frames2(100);
-//	QVector<int> asdf = { 1,2,3,4 };
-////	FftFactory::Instance().timeToFrequencyDomain(value, asdf);
-//
-//	QByteArray dataByteArray;
-//	//dataByteArray.append(value);
-//
-//	_udpConnection->writeDatagram(dataByteArray, _address, 25000);
 }

@@ -4,7 +4,7 @@
 ShooterGameConnection::ShooterGameConnection()
 {
 	_udpConnection = new QUdpSocket(this);
-	_address.setAddress("192.168.1.2");
+	_address.setAddress("192.168.1.7");
 }
 
 void ShooterGameConnection::processTimeDomainValues(const QVector<int>& data)
@@ -14,6 +14,7 @@ void ShooterGameConnection::processTimeDomainValues(const QVector<int>& data)
 	factory->moveToThread(gameThread);
 
 	QObject::connect(factory, SIGNAL(sendResult(const QPair<double, double>&)), this, SLOT(processFftValues(const QPair<double, double>&)));
+	QObject::connect(factory, SIGNAL(isFftFactoryRunning(const bool&)), this, SLOT(notifyBitalinoFftMap(const bool&)));
 	QObject::connect(gameThread, SIGNAL(started()), factory, SLOT(process()));
 	QObject::connect(gameThread, SIGNAL(finished()), gameThread, SLOT(deleteLater()));
 
@@ -24,8 +25,8 @@ void ShooterGameConnection::processFftValues(const QPair<double, double>& alphaT
 {
 	double alphaThetaDivision = alphaThetaPair.first / alphaThetaPair.second;
 
-	updateMinMaxValues(alphaThetaDivision);
-	QString percentage = getPercentage(alphaThetaDivision);
+	updateMinMaxValues(alphaThetaPair.second);
+	QString percentage = getPercentage(alphaThetaPair.second);
 
 	QByteArray dataByteArray;
 	dataByteArray.append(percentage);
@@ -34,6 +35,12 @@ void ShooterGameConnection::processFftValues(const QPair<double, double>& alphaT
 
 	_udpConnection->writeDatagram(dataByteArray, _address, 25000);
 }
+
+void ShooterGameConnection::notifyBitalinoFftMap(const bool& result)
+{
+	emit updateBitalinoDeviceFftFlag(result);
+}
+
 
 QString ShooterGameConnection::getPercentage(const double& value)
 {

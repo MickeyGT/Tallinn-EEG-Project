@@ -25,6 +25,9 @@ void FftFactory::process()
 	QPair<double, double> alphaThetaPair = parsePythonScriptResponse(result);
 
 	emit sendResult(alphaThetaPair);
+
+	process.waitForFinished();
+	emit isFftFactoryRunning(false);
 }
 
 QPair<double, double> FftFactory::parsePythonScriptResponse(const QString& response)

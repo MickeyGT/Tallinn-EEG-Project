@@ -23,10 +23,12 @@ private:
 private slots:
 	void updateBitalinoDevice1Plot(const double& value);
 	void updateBitalinoDevice2Plot(const double& value);
-	void sendPercentageToGame(const QVector<int>& percentage);
+
+signals:
+	void test();
 
 private:
-	ShooterGameConnection* _gameConnection;
+	ShooterGameConnection*	_gameConnection;
 	
 	Ui::SignalifierClass	_ui;
 };

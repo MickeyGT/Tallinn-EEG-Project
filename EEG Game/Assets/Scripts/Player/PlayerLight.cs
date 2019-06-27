@@ -17,7 +17,7 @@ public class PlayerLight : MonoBehaviour {
 	void Update ()
     {
         // Change the intensity based on the power from UDP.
-        light.intensity = UDP.power - 1;
+        light.intensity = UDP.power * 2 - 1;
         // If the power is over 50, the player gets a "Super-Sayian Halo".
         if (UDP.power >= 50)
             halo.enabled = true;
