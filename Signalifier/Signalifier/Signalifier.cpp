@@ -7,19 +7,12 @@ Signalifier::Signalifier(QWidget *parent)
 	: QMainWindow(parent)
 {
 	_ui.setupUi(this);
+	connect(_ui.button1, SIGNAL(pressed()), this, SLOT(startDevice()));
+	connect(_ui.button2, SIGNAL(pressed()), this, SLOT(changeUDPSendingIp()));
 
 	setUpRealTimePlot(_ui.bitalinoDevice1);
 
-	_gameConnection = new ShooterGameConnection();
-
 	BitalinoDeviceManager::Instance().retrieveBluetoothDevices();
-
-	connectBitalinoToPlot();
-	connectBitalinoToGame();
-
-	BitalinoDeviceManager::Instance().startDevices();
-
-
 }
 
 void Signalifier::setUpRealTimePlot(QCustomPlot *widget)
@@ -67,7 +60,6 @@ void Signalifier::connectBitalinoToGame()
 	device1->setFftMap(fftMap);
 
 	QObject::connect(device1, SIGNAL(timeDomainValues(const QVector<int>&)), _gameConnection, SLOT(processTimeDomainValues(const QVector<int>&)));
-
 	QObject::connect(_gameConnection, SIGNAL(updateBitalinoDeviceFftFlag(const bool&)), fftMap, SLOT(setIsFftFactoryRunningFlag(const bool&)));
 }
 
@@ -88,19 +80,24 @@ void Signalifier::updateBitalinoDevice1Plot(const double& value)
 	_ui.bitalinoDevice1->replot();
 }
 
-void Signalifier::updateBitalinoDevice2Plot(const double& value)
+
+void Signalifier::changeUDPSendingIp()
 {
-	static QTime time(QTime::currentTime());
-	double key = time.elapsed() / 1000.0;
-	static double lastPointKey = 0;
+	bool ok;
+	QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+		tr("Ip address:"), QLineEdit::Normal,
+		QDir::home().dirName(), &ok);
 
-	if (key - lastPointKey > 0.002)
-	{
-		_ui.bitalinoDevice2->graph(0)->addData(key, value);
-		lastPointKey = key;
-	}
+	if (ok && !text.isEmpty())
+		_gameConnection->changeUdpConnectionAddress(text);
+}
 
-	_ui.bitalinoDevice2->graph(0)->rescaleValueAxis();
-	_ui.bitalinoDevice2->xAxis->setRange(key, 8, Qt::AlignRight);
-	_ui.bitalinoDevice2->replot();
+void Signalifier::startDevice()
+{
+	_gameConnection = new ShooterGameConnection();
+
+	connectBitalinoToPlot();
+	connectBitalinoToGame();
+
+	BitalinoDeviceManager::Instance().startDevices();
 }

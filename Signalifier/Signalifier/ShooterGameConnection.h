@@ -13,6 +13,7 @@ class ShooterGameConnection : public QObject
 
 public:
 	ShooterGameConnection();
+	void changeUdpConnectionAddress(const QString& address);
 
 public slots:
 	void processTimeDomainValues(const QVector<int>&);

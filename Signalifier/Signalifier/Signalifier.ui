@@ -37,19 +37,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="button3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>101</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RecevingPort</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="button1">
     <property name="geometry">
      <rect>
@@ -60,30 +47,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>RecevingPort</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button4">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>200</y>
-      <width>101</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Sending Options</string>
-    </property>
-   </widget>
-   <widget class="QCustomPlot" name="bitalinoDevice2" native="true">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>170</y>
-      <width>451</width>
-      <height>141</height>
-     </rect>
+     <string>Start Device</string>
     </property>
    </widget>
   </widget>

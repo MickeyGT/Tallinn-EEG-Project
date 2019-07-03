@@ -7,8 +7,13 @@ void BitalinoDeviceManager::retrieveBluetoothDevices()
 
 	for (const BITalino::DevInfo& device : deviceList)
 	{
-		BitalinoDevice* devicePtr = new BitalinoDevice(device);
-		_deviceList.push_back(devicePtr);
+		QString deviceName = QString::fromStdString(device.name);
+
+		if (deviceName.contains("bitalino", Qt::CaseInsensitive))
+		{
+			BitalinoDevice* devicePtr = new BitalinoDevice(device);
+			_deviceList.push_back(devicePtr);
+		}
 	}
 }
 

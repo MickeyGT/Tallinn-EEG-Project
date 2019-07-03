@@ -27,10 +27,7 @@ public:
     QWidget *centralWidget;
     QPushButton *button2;
     QCustomPlot *bitalinoDevice1;
-    QPushButton *button3;
     QPushButton *button1;
-    QPushButton *button4;
-    QCustomPlot *bitalinoDevice2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -48,18 +45,9 @@ public:
         bitalinoDevice1 = new QCustomPlot(centralWidget);
         bitalinoDevice1->setObjectName(QStringLiteral("bitalinoDevice1"));
         bitalinoDevice1->setGeometry(QRect(300, 10, 451, 141));
-        button3 = new QPushButton(centralWidget);
-        button3->setObjectName(QStringLiteral("button3"));
-        button3->setGeometry(QRect(20, 200, 101, 81));
         button1 = new QPushButton(centralWidget);
         button1->setObjectName(QStringLiteral("button1"));
         button1->setGeometry(QRect(20, 30, 101, 81));
-        button4 = new QPushButton(centralWidget);
-        button4->setObjectName(QStringLiteral("button4"));
-        button4->setGeometry(QRect(160, 200, 101, 81));
-        bitalinoDevice2 = new QCustomPlot(centralWidget);
-        bitalinoDevice2->setObjectName(QStringLiteral("bitalinoDevice2"));
-        bitalinoDevice2->setGeometry(QRect(300, 170, 451, 141));
         SignalifierClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SignalifierClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -81,9 +69,7 @@ public:
     {
         SignalifierClass->setWindowTitle(QApplication::translate("SignalifierClass", "Signalifier", nullptr));
         button2->setText(QApplication::translate("SignalifierClass", "Sending Options", nullptr));
-        button3->setText(QApplication::translate("SignalifierClass", "RecevingPort", nullptr));
-        button1->setText(QApplication::translate("SignalifierClass", "RecevingPort", nullptr));
-        button4->setText(QApplication::translate("SignalifierClass", "Sending Options", nullptr));
+        button1->setText(QApplication::translate("SignalifierClass", "Start Device", nullptr));
     } // retranslateUi
 
 };

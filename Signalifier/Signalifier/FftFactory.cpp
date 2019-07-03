@@ -2,11 +2,12 @@
 #include <qprocess.h>
 #include <qdebug.h>
 
+const QString kPythonScriptPath = "E:\\Tallinn-EEG-Project\\Signalifier\\FFT-computor\\FFT.py";
 
 void FftFactory::process()
 {
 	QStringList args;
-	args << "E:\\Tallinn-EEG-Project\\Signalifier\\FFT-computor\\FFT.py";
+	args << kPythonScriptPath;
 	for (const auto& i : _data)
 	{
 		args << QString::number(i);
@@ -20,7 +21,6 @@ void FftFactory::process()
 	process.waitForReadyRead();
 
 	QString result(process.readAllStandardOutput());
-//	qDebug() << result;
 
 	QPair<double, double> alphaThetaPair = parsePythonScriptResponse(result);
 

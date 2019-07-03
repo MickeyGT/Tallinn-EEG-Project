@@ -4,7 +4,7 @@
 ShooterGameConnection::ShooterGameConnection()
 {
 	_udpConnection = new QUdpSocket(this);
-	_address.setAddress("192.168.1.7");
+	_address.setAddress(QHostAddress::Any);
 }
 
 void ShooterGameConnection::processTimeDomainValues(const QVector<int>& data)
@@ -20,6 +20,12 @@ void ShooterGameConnection::processTimeDomainValues(const QVector<int>& data)
 
 	gameThread->start();
 }
+
+void ShooterGameConnection::changeUdpConnectionAddress(const QString& address)
+{
+	_address.setAddress(address);
+}
+
 
 void ShooterGameConnection::processFftValues(const QPair<double, double>& alphaThetaPair)
 {

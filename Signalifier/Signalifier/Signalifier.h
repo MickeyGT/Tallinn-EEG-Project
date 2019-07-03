@@ -22,8 +22,8 @@ private:
 
 private slots:
 	void updateBitalinoDevice1Plot(const double& value);
-	void updateBitalinoDevice2Plot(const double& value);
-
+	void changeUDPSendingIp();
+	void startDevice();
 signals:
 	void test();
 

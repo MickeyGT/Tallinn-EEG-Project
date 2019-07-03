@@ -29,7 +29,6 @@ void BitalinoDevice::process()
 {
 	_device.start(1000, { 0 });   // start acquisition of channel 0 at 1000 Hz
 	//dev.trigger({ true, false });  // for original BITalino
-	
 	BITalino::VFrame frames(100); // initialize the frames vector with 100 frames 
 	do
 	{
